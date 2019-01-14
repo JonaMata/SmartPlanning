@@ -22,7 +22,7 @@ if(isset($_POST)) {
 
 <form method="POST">
   Username: <input type="username" name="username"><br>
-  E-mail: <input type="email" name="username"><br>
+  E-mail: <input type="email" name="email"><br>
   Password: <input type="password" name="password"><br>
   Repeat password: <input type="password" name="password-check"><br>
   <button type="submit">Register</button>
