@@ -1,18 +1,15 @@
-<?php error_reporting(E_ALL);
-ini_set('display_errors', 1); ?>
-
 <?php
 $title = 'Register';
 require('includes/header.php');
 
-if(isset($_POST)) {
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
   require('includes/database.php');
 
-  $query = $conn->prepare("INSERT INTO users (username, email, password, type, planning_userid) VALUE (?, ?, ?, ?, ?)");
-  //$query->bind_param('sssii', $_POST['username'], $_POST['email'], $_POST['password'], $_POST['type'], $_POST['planning_userid']);
-  //$query->execute();
+  $query = $conn->prepare("INSERT INTO users (username, email, password, type) VALUE (?, ?, ?, ?)");
+  $query->bind_param('sssi', $_POST['username'], $_POST['email'], $_POST['password'], intval($_POST['type']));
+  $query->execute();
 
-  //header('Location: /');
+  header('Location: /login.php');
 
 }
 
@@ -25,6 +22,7 @@ if(isset($_POST)) {
   E-mail: <input type="email" name="email"><br>
   Password: <input type="password" name="password"><br>
   Repeat password: <input type="password" name="password-check"><br>
+  Type: <input type="radio" name="type" value="1">User <input type="radio" name="type" value="0">Caretaker<br>
   <button type="submit">Register</button>
 </form>
 
