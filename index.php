@@ -8,5 +8,5 @@ require('includes/header.php');
 
 
 <?php
-require('includes/gooter.php');
+require('includes/footer.php');
 ?>

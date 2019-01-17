@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $query->execute();
   $result = $query->get_result();
   if ($row = $result->fetch_array(MYSQLI_NUM)) {
-    $_SESSION['id']=$row['id'];
+    $_SESSION['id']=$row[0];
     $_SESSION['username']=$_POST['username'];
     $_SESSION['loggedIn']=true;
   }

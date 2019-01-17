@@ -18,7 +18,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 ?>
-
 <form method="POST">
   Event <input name="name"><br>
   Description <input name="description"><br>
@@ -26,9 +25,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   Date <input type="date" name="date"><br>
   Start time <input type="time" name="start_time"><br>
   End time <input type="time" name="end_time"><br>
-  Fixed <input type="checkbox" name="fixed"><br>
+  Fixed <input type="checkbox" value="1" name="fixed"><br>
   Priority <input type="number" name="priority"><br>
-  Can be moved to next day <input type="checkbox" name="can_next_day"><br>
+  Can be moved to next day <input type="checkbox" value="1" name="can_next_day"><br>
   Due date <input type="date" name="due_date"><br>
   <button type="submit">Add event</button>
 </form>
