@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $query->bind_param('sssi', $_POST['username'], $_POST['email'], $_POST['password'], intval($_POST['type']));
   $query->execute();
 
-  header('Location: /login.php');
+  header('Location: login.php');
 
 }
 
