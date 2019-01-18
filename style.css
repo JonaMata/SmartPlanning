@@ -11,7 +11,11 @@ body {
   display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 50px auto 100px;
-    grid-template-areas: "header""nav""content""footer";
+    grid-template-areas:
+    "header"
+    "nav"
+    "content"
+    "footer";
 
     display: -ms-grid;  /* Support for MS Edge */
     -ms-grid-columns: 1fr;
@@ -19,12 +23,14 @@ body {
 }
 
 header {
+  grid-area: header;
   -ms-grid-column: 1;
   -ms-grid-row: 1;
   background: lightgrey;
 }
 
 nav {
+  grid-area: nav;
   -ms-grid-column: 1;
   -ms-grid-row: 2;
   background: grey;
@@ -40,11 +46,13 @@ nav a {
 }
 
 #content {
+  grid-area: content;
   -ms-grid-column: 1;
   -ms-grid-row: 3;
 }
 
 footer {
+  grid-area: footer;
   -ms-grid-column: 1;
   -ms-grid-row: 4;
   background: darkgrey;
