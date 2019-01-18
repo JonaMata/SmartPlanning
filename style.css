@@ -2,10 +2,30 @@ body, html {
   margin: 0;
 }
 
-nav {
-  height: 50px;
+html {
+  height:100%;
   width: 100%;
-  background: lightgrey;
+}
+
+body {
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 100px;
+    grid-template-areas:
+    "nav"
+    "content"
+    "footer";
+
+    display: -ms-grid;  /* Support for MS Edge */
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 50px auto 100px;
+}
+
+nav {
+  grid-area: nav;
+  -ms-grid-column: 1;
+  -ms-grid-row: 1;
+  background: grey;
 }
 
 nav a {
@@ -15,4 +35,17 @@ nav a {
   height: 50px;
   margin-right: 20px;
   font-size: 40px;
+}
+
+#content {
+  grid-area: content;
+  -ms-grid-column: 1;
+  -ms-grid-row: 2;
+}
+
+footer {
+  grid-area: footer;
+  -ms-grid-column: 1;
+  -ms-grid-row: 3;
+  background: darkgrey;
 }
