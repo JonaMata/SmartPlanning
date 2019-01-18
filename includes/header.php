@@ -29,3 +29,4 @@ session_start();
       }
       ?>
     </nav>
+    <div id="content">

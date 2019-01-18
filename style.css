@@ -1,11 +1,30 @@
 body, html {
   margin: 0;
+  height:100%;
+  width: 100%;
+}
+
+body {
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 50px auto 100px;
+    grid-template-areas: "header""nav""content""footer";
+
+    display: -ms-grid;  /* Support for MS Edge */
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 100px 100px auto 100px;
+}
+
+header {
+  -ms-grid-column: 1;
+  -ms-grid-row: 1;
+  background: lightgrey;
 }
 
 nav {
-  height: 50px;
-  width: 100%;
-  background: lightgrey;
+  -ms-grid-column: 1;
+  -ms-grid-row: 2;
+  background: grey;
 }
 
 nav a {
@@ -15,4 +34,15 @@ nav a {
   height: 50px;
   margin-right: 20px;
   font-size: 40px;
+}
+
+#content {
+  -ms-grid-column: 1;
+  -ms-grid-row: 3;
+}
+
+footer {
+  -ms-grid-column: 1;
+  -ms-grid-row: 4;
+  background: darkgrey;
 }
