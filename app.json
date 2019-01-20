@@ -2,6 +2,12 @@
   "$jason": {
     "head": {
       "actions": {
+        "handleUrl": {
+          "type": "$href",
+          "options": {
+            "url": "{{$jason.url}}"
+          }
+        }
       }
     },
     "body": {
