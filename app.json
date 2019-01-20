@@ -10,7 +10,10 @@
       },
       "background": {
         "type": "html",
-        "url": "https://dev.jonathanm.nl/SmartPlanning"
+        "url": "https://dev.jonathanm.nl/SmartPlanning",
+        "action": {
+          "type": "default"
+        }
       }
     }
   }
