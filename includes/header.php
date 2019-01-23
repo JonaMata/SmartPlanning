@@ -16,16 +16,20 @@ session_start();
   <body>
     <nav>
       <a href="index.php">Home</a>
-      <a href="login.php">Login</a>
-      <a href="register.php">Register</a>
-      <a href="logout.php">Log out</a>
       <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>
       <a href="addcaretaker.php">Add-Caretaker</a>
       <?php
       if($_SESSION['loggedIn']) {
         ?>
+        <a href="logout.php">Log out</a>
         <span>Welcome <?php echo $_SESSION['username'];?>.</span>
+        <?php
+      }
+      else{
+        ?>
+        <a href="login.php">Login</a>
+        <a href="register.php">Register</a>
         <?php
       }
       ?>

@@ -6,15 +6,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   require('includes/database.php');
 
-  $query = $conn->prepare("SELECT id, email, type FROM users WHERE username = ? and password = ?");
-  $query->bind_param('ss', $_POST['username'], $_POST['password']);
+  $query = $conn->prepare("SELECT id, type FROM users WHERE email = ? and password = ?");
+  $query->bind_param('ss', $_POST['email'], $_POST['password']);
   $query->execute();
   $result = $query->get_result();
+  if (!$result) {
+        die("Email or password incorrect.");
+  }
+
   if ($row = $result->fetch_array(MYSQLI_NUM)) {
     $_SESSION['id']=$row[0];
-    $_SESSION['username']=$_POST['username'];
-    $_SESSION['email']=$row[1];
-    $_SESSION['type']=($row[2] == 1 ? "user" : "caretaker");
+    $_SESSION['email']=$_POST['email'];
+    $_SESSION['type']=($row[1] == 1 ? "user" : "caretaker");
     $_SESSION['loggedIn']=true;
   }
 
@@ -23,8 +26,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <form method="POST">
-  Username: <input name="username"><br>
-  Password: <input type="password" name="password"><br>
+  e-mail: <input name="email" required><br>
+  Password: <input type="password" name="password" required><br>
   <button type="submit">Login</button>
 </form>
 
