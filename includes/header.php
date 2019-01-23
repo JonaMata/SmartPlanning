@@ -21,6 +21,7 @@ session_start();
       <a href="logout.php">Log out</a>
       <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>
+      <a href="addcaretaker.php">Add-Caretaker</a>
       <?php
       if($_SESSION['loggedIn']) {
         ?>
