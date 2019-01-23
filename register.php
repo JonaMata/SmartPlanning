@@ -13,18 +13,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
+
+
 ?>
 
-<script src="/register_check.js"></script>
-
 <form method="POST">
-  Name: <input type="text" name="name" maxlength="100"><br>
-  E-mail: <input type="email" name="email" maxlength="100" required><br>
-  Password: <input type="password" id="password" name="password" maxlength="100" onkeyup="check();" required><br>
-  Repeat password: <input type="password" id="password-check" name="password-check" maxlength="100" onkeyup="check();" required><br>
+  Username: <input type="username" name="username"><br>
+  E-mail: <input type="email" name="email"><br>
+  Password: <input type="password" name="password"><br>
+  Repeat password: <input type="password" name="password-check"><br>
   Type: <input type="radio" name="type" value="1">User <input type="radio" name="type" value="0">Caretaker<br>
-  <span id='message'></span><br>
-  <button type="submit" id="btnSubmit">Register</button>
+  <button type="submit">Register</button>
 </form>
 
 <?php
