@@ -10,17 +10,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $query->bind_param('ss', $_POST['email'], $_POST['password']);
   $query->execute();
   $result = $query->get_result();
-  if (!$result) {
-        die("User not found");
-  }
-  if ($_POST['password'] !== $result['password']){
-        die("Password does not match");
-  }
 
   if ($row = $result->fetch_array(MYSQLI_NUM)) {
     $_SESSION['id']=$row['id'];
     $_SESSION['email']=$_POST['email'];
     $_SESSION['loggedIn']=true;
+    if ($_POST['password'] !== $row['password']){
+          die("Password does not match");
+    }
+  }
+
+  else{
+    die("User not found");
   }
 
   header("Location: index.php");
