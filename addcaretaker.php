@@ -34,8 +34,20 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
 
     echo $query->error;
 
+    $link = $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]."?email=".$_SESSION['email']."&secret=".$secret
+
     ?>
-    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://<?php echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]."%3Femail=".$_SESSION['email']."%26secret=".$secret; ?>"/>
+    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://<?php echo urlencode($link); ?>"/>
+    <input type="text" value="<?php echo $link; ?>" id="link">
+    <button onclick="copyLink()">Copy link</button>
+
+    <script>
+        function copyLink() {
+            var link = document.getElementById("link");
+            link.select();
+            document.execCommand("copy");
+        }
+    </script>
 
     <?php
 }
