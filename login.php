@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <form method="POST">
-  e-mail: <input name="email" required><br>
+  e-mail: <input type="email" name="email" required><br>
   Password: <input type="password" name="password" required><br>
   <button type="submit">Login</button>
 </form>
