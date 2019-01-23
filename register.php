@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<script src="/register_check.js"></script>
+<script src="register_check.js"></script>
 
 <form method="POST">
   Name: <input type="text" name="name" maxlength="100"><br>
