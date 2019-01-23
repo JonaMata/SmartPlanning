@@ -34,10 +34,10 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
 
     echo $query->error;
 
-    $link = $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]."?email=".$_SESSION['email']."&secret=".$secret
+    $link = "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]."?email=".$_SESSION['email']."&secret=".$secret
 
     ?>
-    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://<?php echo urlencode($link); ?>"/>
+    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo urlencode($link); ?>"/>
     <input type="text" value="<?php echo $link; ?>" id="link">
     <button onclick="copyLink()">Copy link</button>
 
