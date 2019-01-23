@@ -5,7 +5,7 @@ require('includes/header.php');
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   require('includes/database.php');
 
-  $query = $conn->prepare("INSERT INTO users (email, password, type) VALUE (?, ?, ?, ?)");
+  $query = $conn->prepare("INSERT INTO users (email, password, type) VALUE (?, ?, ?)");
   $query->bind_param('ssi', $_POST['email'], $_POST['password'], intval($_POST['type']));
   $query->execute();
 
