@@ -22,6 +22,7 @@ session_start();
       <?php
       if($_SESSION['loggedIn']) {
         ?>
+        <a href="settings.php">Settings</a>
         <a href="logout.php">Log out</a>
         <span>Logged in as <?php echo $_SESSION['email'];?>.</span>
         <?php
