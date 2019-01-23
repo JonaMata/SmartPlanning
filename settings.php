@@ -11,14 +11,6 @@ $query->bind_param('i', $_SESSION['id']);
 $query->execute();
 $result = $query->get_result();
 
-
-if ($row = $result->fetch_array(MYSQLI_NUM)) {
-    $_SESSION['id']=$row[0];
-    $_SESSION['email']=$_POST['email'];
-    $_SESSION['type']=($row[1] == 1 ? "user" : "caretaker");
-    $_SESSION['loggedIn']=true;
-}
-
 ?>
 <h1>Settings</h1>
 <hr>
