@@ -38,6 +38,7 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
 
     ?>
     <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo urlencode($link); ?>"/>
+    <br>
     <input type="text" value="<?php echo $link; ?>" id="link">
     <button onclick="copyLink()">Copy link</button>
 
