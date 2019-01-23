@@ -6,10 +6,12 @@ if(!$_SESSION['loggedIn']) die("You need to be logged in.");
 
 require "includes/database.php";
 
-$query = $conn->prepare("SELECT u.email, a.category FROM users u LEFT JOIN association a ON u.userid = a.caretaker_userid WHERE a.userid = ?");
+$query = $conn->prepare("SELECT U.email, A.category FROM users U LEFT JOIN association A ON U.userid = A.caretaker_userid WHERE A.userid = ?");
 $query->bind_param('i', $_SESSION['id']);
 $query->execute();
 $result = $query->get_result();
+
+echo $query->error;
 
 if ($row = $result->fetch_array(MYSQLI_NUM)) {
     $_SESSION['id']=$row[0];
