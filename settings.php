@@ -6,7 +6,7 @@ if(!$_SESSION['loggedIn']) die("You need to be logged in.");
 
 require "includes/database.php";
 
-$query = $conn->prepare("SELECT U.email, A.category FROM users U LEFT JOIN association A ON U.userid = A.caretaker_userid WHERE A.userid = ?");
+$query = $conn->prepare("SELECT users.email, association.category FROM users, association WHERE users.userid = association.caretaker_userid AND A.userid = ?");
 echo $query->error;
 echo "wtf";
 $query->bind_param('i', $_SESSION['id']);
