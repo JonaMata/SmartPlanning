@@ -16,12 +16,7 @@ session_start();
   <body>
     <nav>
       <a href="index.php">Home</a>
-      <a href="
-      <?php
-      if($_SESSION['type'] == "caretaker"){echo "choose_user.php";}
-      else{echo "planning.php";}
-      ?>
-      ">Planning</a>
+      <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>
       <?php
       if($_SESSION['loggedIn']) {
