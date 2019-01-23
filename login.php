@@ -6,19 +6,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   require('includes/database.php');
 
-  $query = $conn->prepare("SELECT id, password FROM users WHERE email = ? and password = ?");
+  $query = $conn->prepare("SELECT id FROM users WHERE email = ? and password = ?");
   $query->bind_param('ss', $_POST['email'], $_POST['password']);
   $query->execute();
   $result = $query->get_result();
   if (!$result) {
-        die("User not found");
-  }
-  if ($_POST['password'] !== $result['password']){
-        die("Password does not match");
+        die("Email or password incorrect.");
   }
 
   if ($row = $result->fetch_array(MYSQLI_NUM)) {
-    $_SESSION['id']=$row['id'];
+    $_SESSION['id']=$row[0];
     $_SESSION['email']=$_POST['email'];
     $_SESSION['loggedIn']=true;
   }
