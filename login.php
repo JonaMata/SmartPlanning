@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   require('includes/database.php');
 
-  $query = $conn->prepare("SELECT id FROM users WHERE email = ? and password = ?");
+  $query = $conn->prepare("SELECT id, type FROM users WHERE email = ? and password = ?");
   $query->bind_param('ss', $_POST['email'], $_POST['password']);
   $query->execute();
   $result = $query->get_result();
@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($row = $result->fetch_array(MYSQLI_NUM)) {
     $_SESSION['id']=$row[0];
     $_SESSION['email']=$_POST['email'];
+    $_SESSION['type']=($row[1] == 1 ? "user" : "caretaker");
     $_SESSION['loggedIn']=true;
   }
 

@@ -18,6 +18,7 @@ session_start();
       <a href="index.php">Home</a>
       <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>
+      <a href="addcaretaker.php">Add-Caretaker</a>
       <?php
       if($_SESSION['loggedIn']) {
         ?>
