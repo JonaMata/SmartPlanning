@@ -6,10 +6,16 @@ if($_SESSION['loggedIn']){
 
 require('includes/database.php');
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if(isset($_POST['date'])){
   $date = $_POST['date'];
-}else {
+}else{
   $date = date('Y-m-d');
+}
+
+if(isset($_POST['id'])){
+  $userid = $_POST['id'];
+}else {
+  $userid = $_SESSION['id'];
 }
 
 ?>
@@ -17,6 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form method='POST'>
   Date:
   <input type="date" name="date">
+  <input type="hidden" value="<?php echo($userid)?>">
   <input type="submit" value="go">
 </form>
 
