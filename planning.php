@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<form action="planning.php" method='post'>
+<form method='POST'>
   Date:
   <input type="date" name="date">
   <input type="submit" value="go">
