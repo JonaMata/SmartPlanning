@@ -30,6 +30,13 @@ nav {
   background: grey;
 }
 
+nav {
+  grid-area: nav;
+  -ms-grid-column: 1;
+  -ms-grid-row: 2;
+  background: grey;
+}
+
 nav a {
   display: inline-block;
   color: black;
