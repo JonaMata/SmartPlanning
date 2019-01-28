@@ -28,7 +28,6 @@ $result = $query->get_result();
 ?>
 <h1>Settings</h1>
 <hr>
-<br>
 <h2>Caretakers</h2>
 <hr>
 <form>
@@ -45,7 +44,7 @@ $result = $query->get_result();
             <tr>
                 <td><?php echo $row[0]; ?></td>
                 <td>
-                    <select name="<?php echo "caretaker".$row[2]; ?>">
+                    <select name="<?php echo $row[2]; ?>">
                         <option value="none" <?php echo ($category == "none" ? "selected" : ""); ?>>None</option>
                         <option value="home" <?php echo ($category == "home" ? "selected" : ""); ?>>Home</option>
                         <option value="school" <?php echo ($category == "school" ? "selected" : ""); ?>>School</option>
