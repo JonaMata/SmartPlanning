@@ -20,7 +20,6 @@ body {
     display: -ms-grid;  /* Support for MS Edge */
     -ms-grid-columns: 1fr;
     -ms-grid-rows: 50px auto 100px;
-
     min-height:100%;
 }
 
@@ -29,14 +28,6 @@ nav {
   -ms-grid-column: 1;
   -ms-grid-row: 1;
   background: white;
-  img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
-
 }
 
 
