@@ -23,8 +23,6 @@ if($_SESSION['loggedIn']){
     </form>
     <?php
   }
-
-  header("Location: index.php");
 }
 else{
   ?>
