@@ -5,7 +5,7 @@ require('includes/header.php');
 if($_SESSION['loggedIn']){
   require('includes/database.php');
 
-  $query = $conn->prepare("SELECT userid, email FROM association A LEFT JOIN users U ON A.userid = U.id  WHERE U.id = ?");
+  $query = $conn->prepare("SELECT A.userid, U.email FROM association A LEFT JOIN users U ON A.userid = U.id  WHERE A.userid = ?");
   $query->bind_param('i', $_SESSION['id']);
   $query->execute();
   $result = $query->get_result();
