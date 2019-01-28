@@ -10,7 +10,7 @@ session_start();
     <meta name="Description" content="Author: S. C. Busters">
     <meta name="theme-color" content="#502D4B">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='icon' href="media/logotemp.ico" type="image/x-icon" />
+    <link rel='icon' href="media/Logo.ico" type="image/x-icon" />
 
   </head>
   <body>
