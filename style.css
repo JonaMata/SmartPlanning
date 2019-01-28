@@ -11,7 +11,7 @@ html {
 body {
   display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 60px auto 100px;
+    grid-template-rows: 70px auto 100px;
     grid-template-areas:
     "nav"
     "content"
@@ -40,7 +40,9 @@ nav a {
   height: 50px;
   margin-right: 20px;
   font-size: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-weight: bold;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 #content {

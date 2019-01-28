@@ -15,6 +15,7 @@ session_start();
   </head>
   <body>
     <nav>
+      <a/
       <a href="index.php">Home</a>
       <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>
