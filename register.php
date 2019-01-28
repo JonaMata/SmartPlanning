@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   E-mail: <input type="email" name="email" maxlength="100" required><br>
   Password: <input type="password" id="password" name="password" maxlength="100" onkeyup="check();" required><br>
   Repeat password: <input type="password" id="password-check" name="password-check" maxlength="100" onkeyup="check();" required><br>
-  Type: <input type="radio" name="type" value="1">User <input type="radio" name="type" value="0">Caretaker<br>
+  Type: <input type="radio" name="type" value="1" checked>User <input type="radio" name="type" value="0">Caretaker<br>
   <span id='message'></span><br>
   <button type="submit" id="btnSubmit">Register</button>
 </form>

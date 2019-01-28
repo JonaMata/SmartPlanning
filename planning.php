@@ -6,8 +6,28 @@ if($_SESSION['loggedIn']){
 
 require('includes/database.php');
 
-$date = date('Y-m-d');
+if(isset($_POST['date'])){
+  $date = $_POST['date'];
+}else{
+  $date = date('Y-m-d');
+}
 
+if(isset($_POST['id'])){
+  $userid = $_POST['id'];
+}else {
+  $userid = $_SESSION['id'];
+}
+
+?>
+
+<form method='POST'>
+  Date:
+  <input type="date" name="date">
+  <input type="hidden" value="<?php echo($userid)?>">
+  <input type="submit" value="go">
+</form>
+
+<?php
 $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? ORDER BY start_time, end_time");
 $query->bind_param('is', $_SESSION['id'], $date);
 $query->execute();
