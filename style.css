@@ -73,9 +73,9 @@ nav a {
 
 .item {
  border: 1px solid rgb(255, 167, 0);
+ border-radius: 50px;
  padding: 30px;
  background-color: #ffca66;
- transition: 0.5s;
  min-height: 10px;
  min-width: 50px;
  font-size: 30px;
@@ -84,7 +84,8 @@ nav a {
 }
 
 .item: hover {
-  background-color: #ffca66;
+  background-color: #ffa700;
+  transition: 0.5s;
 }
 
 
