@@ -25,7 +25,7 @@ else {
 <form method='POST'>
   Date:
   <input type="date" name="date">
-  <input type="hidden" value="<?php echo($userid)?>">
+  <input type="hidden" name="id" value="<?php echo($userid)?>">
   <input type="submit" value="go">
 </form>
 
