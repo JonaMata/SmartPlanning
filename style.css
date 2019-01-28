@@ -74,7 +74,7 @@ nav a {
 .item {
  border: 1px solid rgb(255, 167, 0);
  padding: 30px;
- background-color: white;
+ background-color: #ffca66;
  transition: 0.5s;
  min-height: 10px;
  min-width: 50px;
