@@ -57,8 +57,10 @@ nav a {
   grid-area: content;
   -ms-grid-column: 1;
   -ms-grid-row: 2;
-  background: rgb(255, 167,0);
-  .button {
+  background: rgb(255, 167, 0);
+}
+
+.button {
   background-color: white;
   border: none;
   color: rgb(255, 167,0);
