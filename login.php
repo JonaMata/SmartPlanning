@@ -19,14 +19,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['email']=$_POST['email'];
     $_SESSION['type']=($row[1] == 1 ? "user" : "caretaker");
     $_SESSION['loggedIn']=true;
-    if ($_POST['password'] !== $row['password']){
-          die("Password does not match");
-    }
   }
 
-  else{
-    die("User not found");
-  }
 
   header("Location: index.php");
 }
