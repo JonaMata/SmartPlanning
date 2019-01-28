@@ -39,6 +39,7 @@ $result = $query->get_result();
         </tr>
         <?php
         while($row = $result->fetch_array(MYSQLI_NUM)) {
+            echo $row[1];
             $category = (($row[1] == "none" || $row[1] == "") ? "none" : $row[1]);
             ?>
             <tr>
