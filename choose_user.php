@@ -10,16 +10,23 @@ if($_SESSION['loggedIn']){
   $query->execute();
   $result = $query->get_result();
 
+
   if (count($result) == 0){
     echo "no users found";
   }
 
   while ($row = $result->fetch_array(MYSQLI_NUM)) {
     error_log(implode('\n', $row));
+    $query = $conn->prepare("SELECT email FROM users WHERE id = ?");
+    $query->bind_param('i', $row[$i]);
+    $query->execute();
+    $result1 = $query->get_result();
+    $row1 = $result->fetch_array(MYSQLI_NUM);
     ?>
+
     <form method="POST" action="planning.php">
       <input type="hidden" name="id" value="<?php echo $row[0];?>">
-      <button type="submit"><?php echo $row[0];?></button>
+      <button type="submit"><?php echo $row1[0];?></button>
     </form>
     <?php
   }
