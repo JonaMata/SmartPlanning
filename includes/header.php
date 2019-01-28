@@ -30,6 +30,7 @@ session_start();
   </head>
   <body>
     <nav>
+      <img src="media/Logo.png"alt="Logo"  width="200px" height="100px" align="middle">
       <a href="index.php">Home</a>
       <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 body, html {
   margin: 0;
 }
@@ -10,7 +11,7 @@ html {
 body {
   display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px auto 100px;
+    grid-template-rows: 70px auto 100px;
     grid-template-areas:
     "nav"
     "content"
@@ -28,6 +29,14 @@ nav {
   -ms-grid-column: 1;
   -ms-grid-row: 1;
   background: white;
+  img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
 }
 
 
@@ -38,7 +47,10 @@ nav a {
   text-decoration: none;
   height: 50px;
   margin-right: 20px;
-  font-size: 40px;
+  font-size: 30px;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-weight: bold;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 #content {
@@ -46,6 +58,16 @@ nav a {
   -ms-grid-column: 1;
   -ms-grid-row: 2;
   background: rgb(255, 167,0);
+  .button {
+  background-color: white;
+  border: none;
+  color: rgb(255, 167,0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
 }
 
