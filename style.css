@@ -48,8 +48,42 @@ nav a {
   grid-area: content;
   -ms-grid-column: 1;
   -ms-grid-row: 2;
+<<<<<<< HEAD
   background: rgb(255, 167,0);
+=======
+  background: rgb(255, 167, 0);
 }
+
+.button {
+  background-color: white;
+  border: none;
+  color: rgb(255, 167,0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.item {
+ border: 1px solid rgb(255, 167, 0);
+ border-radius: 50px;
+ padding: 30px;
+ background-color: #ffca66;
+ min-height: 10px;
+ min-width: 50px;
+ font-size: 30px;
+ font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+ font-weight: bold;
+}
+
+.item: hover {
+  background-color: #ffa700;
+  transition: 0.5s;
+>>>>>>> edbd398016e72633c7cee502501e335cfd3b40d2
+}
+
+
 
 footer {
   grid-area: footer;
