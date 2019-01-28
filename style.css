@@ -27,19 +27,19 @@ nav {
   grid-area: nav;
   -ms-grid-column: 1;
   -ms-grid-row: 1;
-  background: grey;
+  background: rgb(255, 167,0);;
 }
 
 nav {
   grid-area: nav;
   -ms-grid-column: 1;
   -ms-grid-row: 2;
-  background: grey;
+  background: rgb(255, 167,0);;
 }
 
 nav a {
   display: inline-block;
-  color: black;
+  color: white;
   text-decoration: none;
   height: 50px;
   margin-right: 20px;
@@ -56,5 +56,5 @@ footer {
   grid-area: footer;
   -ms-grid-column: 1;
   -ms-grid-row: 3;
-  background: darkgrey;
+  background: rgb(255, 167,0);
 }
