@@ -48,10 +48,7 @@ nav a {
   grid-area: content;
   -ms-grid-column: 1;
   -ms-grid-row: 2;
-<<<<<<< HEAD
   background: rgb(255, 167,0);
-=======
-  background: rgb(255, 167, 0);
 }
 
 .button {
@@ -80,7 +77,6 @@ nav a {
 .item: hover {
   background-color: #ffa700;
   transition: 0.5s;
->>>>>>> edbd398016e72633c7cee502501e335cfd3b40d2
 }
 
 
