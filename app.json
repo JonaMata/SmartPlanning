@@ -1,0 +1,23 @@
+{
+  "$jason": {
+    "head": {
+      "actions": {
+        "handleUrl": {
+          "type": "$default"
+        }
+      }
+    },
+    "body": {
+      "header": {
+        "title": "APO"
+      },
+      "background": {
+        "type": "html",
+        "url": "https://dev.jonathanm.nl/SmartPlanning",
+        "action": {
+          "trigger": "handleUrl"
+        }
+      }
+    }
+  }
+}
