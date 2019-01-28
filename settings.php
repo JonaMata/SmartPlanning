@@ -10,6 +10,7 @@ require "includes/database.php";
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updateQuery = $conn->prepare("UPDATE association SET category = ? WHERE userid = {$_SESSION['id']} AND caretaker_userid = ?");
     foreach($_POST as $key=>$value) {
+        echo "{$key}->{$value}";
         $updateQuery->bind_param('si', $value, $key);
         $updateQuery->execute();
     }
