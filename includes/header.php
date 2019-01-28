@@ -15,7 +15,7 @@ session_start();
   </head>
   <body>
     <nav>
-      <a/
+      <img src="img/Logo.png" width="50px" height="50px" align="inline">
       <a href="index.php">Home</a>
       <a href="planning.php">Planning</a>
       <a href="addevent.php">Add-event</a>
