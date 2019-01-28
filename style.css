@@ -67,6 +67,12 @@ nav a {
  border: 1px solid white;
  padding: 30px;
  background-color: white;
+ transition: 0.5s;
+ min-height: 10px;
+ min-width: 50px;
+ font-size: 30px;
+ font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+ font-weight: bold;
 }
 
 .item: hover {
