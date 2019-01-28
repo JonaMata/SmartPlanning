@@ -27,19 +27,14 @@ nav {
   grid-area: nav;
   -ms-grid-column: 1;
   -ms-grid-row: 1;
-  background: rgb(255, 167,0);;
+  background: white;
 }
 
-nav {
-  grid-area: nav;
-  -ms-grid-column: 1;
-  -ms-grid-row: 2;
-  background: rgb(255, 167,0);;
-}
+
 
 nav a {
   display: inline-block;
-  color: white;
+  color: rgb(255, 167,0);
   text-decoration: none;
   height: 50px;
   margin-right: 20px;
