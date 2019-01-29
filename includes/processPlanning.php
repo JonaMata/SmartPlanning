@@ -22,11 +22,15 @@ $result = $query->get_result();
         $fixedEvents = array();
         $openTimeSlots = array();
 
+
         foreach($fixedEvents as $value) {
             $nextStartTime = 0;
             $endTime = date('Hi');
+
+            echo "EVENT: ".$value[0]." ENDTIME: ".$endTime;
             foreach($fixedEvents as $testValue) {
                 $startTime = date('Hi');
+                echo "<br>EVENT: ".$testValue[0]." STARTTIME: ".$startTime;
                 if($startTime > $endTime && $startTime < $nextStartTime) {
                     $nextStartTime = $startTime;
                 }
@@ -35,6 +39,7 @@ $result = $query->get_result();
                 }
             }
             if($nextStartTime != 0) {
+                echo "<br>ADDEDTIMESLOT: ".$endTime." DURATION: ".$nextStartTime-$endTime;
                 $openTimeSlots[] = [$endTime, $nextStartTime-$endTime];
             }
         }
