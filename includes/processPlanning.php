@@ -61,7 +61,7 @@ foreach ($fixedEvents as $value) {
     }
 }
 
-print_r($value);
+print_r($openTimeSlots);
 
 
 echo "<br><br><br>";
