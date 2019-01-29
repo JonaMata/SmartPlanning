@@ -55,11 +55,14 @@ foreach ($fixedEvents as $value) {
             break; //No need to add open time slot since there is an event directly after it.
         }
     }
+    echo "<br>NEXTSTARTTIME: ".$nextStartTime;
     if ($nextStartTime != 0) {
         echo "<br>ADDEDTIMESLOT: " . $endTime . " DURATION: " . $nextStartTime - $endTime;
         $openTimeSlots[] = array($endTime, $nextStartTime - $endTime);
     }
 }
+
+echo "<br><br>";
 
 print_r($openTimeSlots);
 
