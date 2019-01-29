@@ -41,7 +41,7 @@ $openTimeSlots = array();
 
 
 foreach ($fixedEvents as $value) {
-    $nextStartTime = 0;
+    $nextStartTime = 2359;
     $endTime = date('Hi', strtotime($value[4]));
 
     echo "<br>EVENT: " . $value[0] . " ENDTIME: " . $endTime;
