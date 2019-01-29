@@ -33,6 +33,10 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
     }
 }
 
+echo "<br><br>";
+
+print_r($fixedEvents);
+
 $openTimeSlots = array();
 
 
@@ -61,6 +65,8 @@ foreach ($openTimeSlots as $value) {
     print_r($value);
 }
 
+
+echo "<br><br><br>";
 
 //        $query = $conn->prepare("INSERT userid, date, processed INTO planning_processed VALUES({$userid}, {date('Y-m-d')}, 1)");
 //        $query->execute();
