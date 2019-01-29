@@ -17,13 +17,11 @@ $result = $query->get_result();
 while ($row = $result->fetch_array(MYSQLI_NUM)) {
   error_log(implode('\n', $row));
 ?>
-<div class="item">
 <table>
   <tr>
-    <th>Name</th>
+    <th> <div class="item"> Name </div> </th>  
     <td><?php echo $row[0];?></th>
   </tr>
-  </div>
   <tr>
     <th>Description</th>
     <td><?php echo $row[1];?></th>
@@ -42,7 +40,6 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
   </tr>
 </table>
 <?php
-
 }
 ?>
 

@@ -4,7 +4,7 @@ require('includes/header.php');
 ?>
 
 <div class="item">
-  Test item 1
+  This should contain the planning for today
 </div>
 <div class="item">
   Test item 2
