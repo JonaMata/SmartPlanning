@@ -39,6 +39,8 @@ $result = $query->get_result();
             }
         }
 
+        print_r($openTimeSlots);
+
 
 //        $query = $conn->prepare("INSERT userid, date, processed INTO planning_processed VALUES({$userid}, {date('Y-m-d')}, 1)");
 //        $query->execute();
