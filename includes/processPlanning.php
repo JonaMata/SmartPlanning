@@ -8,7 +8,8 @@ $result = $query->get_result();
 //    if ($row[0] != 0) {
 
 
-        $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = {$_SESSION['id']} AND date = {date('Y-m-d')} ORDER BY start_time, end_time");
+        $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = {$_SESSION['id']} AND date = ? ORDER BY start_time, end_time");
+        $query->bind_param('s', date('Y-m-d'));
         $query->execute();
 
         $result = $query->get_result();
