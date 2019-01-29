@@ -57,7 +57,7 @@ foreach ($fixedEvents as $value) {
     }
     if ($nextStartTime != 0) {
         echo "<br>ADDEDTIMESLOT: " . $endTime . " DURATION: " . $nextStartTime - $endTime;
-        $openTimeSlots[] = [$endTime, $nextStartTime - $endTime];
+        $openTimeSlots[] = array($endTime, $nextStartTime - $endTime);
     }
 }
 
