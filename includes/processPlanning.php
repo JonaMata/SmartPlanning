@@ -20,6 +20,8 @@ $result = $query->get_result();
             $planningItems[] = $row;
         }
 
+        print_r($planningItems);
+
         $fixedEvents = array();
         $openTimeSlots = array();
 
