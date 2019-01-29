@@ -42,11 +42,11 @@ $openTimeSlots = array();
 
 foreach ($fixedEvents as $value) {
     $nextStartTime = 0;
-    $endTime = date('Hi', $value[4]);
+    $endTime = date('Hi', strtotime($value[4]));
 
     echo "<br>EVENT: " . $value[0] . " ENDTIME: " . $endTime;
     foreach ($fixedEvents as $testValue) {
-        $startTime = date('Hi', $testValue[3]);
+        $startTime = date('Hi', strtotime($testValue[3]));
         echo "<br>EVENT: " . $testValue[0] . " STARTTIME: " . $startTime;
         if ($startTime > $endTime && $startTime < $nextStartTime) {
             $nextStartTime = $startTime;
