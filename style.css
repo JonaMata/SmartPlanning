@@ -51,16 +51,6 @@ nav a {
   background: rgb(255, 167,0);
 }
 
-.button {
-  background-color: white;
-  border: none;
-  color: rgb(255, 167,0);
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
 
 .item {
  border: 1px solid rgb(255, 167, 0);
@@ -72,11 +62,12 @@ nav a {
  font-size: 30px;
  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
  font-weight: bold;
+ transition: 0.5s;
 }
 
 .item: hover {
   background-color: #ffa700;
-  transition: 0.5s;
+
 }
 
 
