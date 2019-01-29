@@ -3,10 +3,10 @@ $title = 'Home';
 require('includes/header.php');
 ?>
 
-<div class="button">
+<div class="item">
   Test item 1
 </div>
-<div class="button">
+<div class="item">
   Test item 2
 </div>
 
