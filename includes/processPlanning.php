@@ -22,11 +22,11 @@ $somedayFixedEvents = array();
 
 while ($row = $result->fetch_array(MYSQLI_NUM)) {
     echo "<br>ADDED ROW";
-    if($row[7] == 1 && $row[6] == 0){
+    if($row[6] == 1 && $row[5] == 0){
         $somedayFixedEvents[] = $row;
-    } else if ($row[7] == 1) {
+    } else if ($row[6] == 1) {
         $somedayEvents[] = $row;
-    } else if ($row[6] == 0) {
+    } else if ($row[5] == 0) {
         $todayEvents[] = $row;
     } else {
         $fixedEvents[] = $row;
