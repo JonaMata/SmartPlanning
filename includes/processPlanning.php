@@ -22,7 +22,7 @@ $somedayFixedEvents = array();
 
 while ($row = $result->fetch_array(MYSQLI_NUM)) {
     echo "<br>ADDED ROW";
-    if($row[6] == 1 && $row[5] == 0){
+    if ($row[6] == 1 && $row[5] == 0) {
         $somedayFixedEvents[] = $row;
     } else if ($row[6] == 1) {
         $somedayEvents[] = $row;
@@ -61,9 +61,7 @@ foreach ($fixedEvents as $value) {
     }
 }
 
-foreach ($openTimeSlots as $value) {
-    print_r($value);
-}
+print_r($value);
 
 
 echo "<br><br><br>";
