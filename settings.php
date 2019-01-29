@@ -31,7 +31,7 @@ $result = $query->get_result();
 <hr>
 <h2>Caretakers</h2>
 <hr>
-<form>
+<form method="post">
     <table>
         <tr>
             <th>Caretaker</th>
