@@ -16,6 +16,7 @@ $result = $query->get_result();
         $planningItems = array();
 
         while ($row = $result->fetch_array(MYSQLI_NUM)) {
+            echo "<br>ADDED ROW";
             $planningItems[] = $row;
         }
 
@@ -27,7 +28,7 @@ $result = $query->get_result();
             $nextStartTime = 0;
             $endTime = date('Hi');
 
-            echo "EVENT: ".$value[0]." ENDTIME: ".$endTime;
+            echo "<br>EVENT: ".$value[0]." ENDTIME: ".$endTime;
             foreach($fixedEvents as $testValue) {
                 $startTime = date('Hi');
                 echo "<br>EVENT: ".$testValue[0]." STARTTIME: ".$startTime;
