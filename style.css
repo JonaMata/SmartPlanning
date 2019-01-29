@@ -34,13 +34,13 @@ nav {
 
 nav a {  /*header part-menu*/
   display: inline-block;
-    color: rgb(255, 167,0)
+    color: rgb(255, 167,0);
     text-decoration: none;
     text-align: center;
     height: 50px;
     margin-right: 20px;
     font-size: 30px;
-    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
     font-weight: bold;
 }
 
