@@ -62,7 +62,7 @@ foreach ($fixedEvents as $value) {
     }
 }
 
-$possibleEvents = array();
+
 
 function planEvents($duration, $events) {
     echo "<br><br>DURATION: ".$duration;
@@ -70,7 +70,15 @@ function planEvents($duration, $events) {
     $temp['duration'] = 0;
     settype($temp['duration'], "integer");
     $temp['events'] = array();
+    $possibleEvents = array();
     nextEvent($duration, $events, $temp);
+    $bestOption = $possibleEvents[0];
+    foreach($possibleEvents as $key=>$value) {
+        if($value['duration'] > $bestOption['duration']) {
+            $bestOption = $value;
+        }
+    }
+    return $bestOption;
 }
 
 function nextEvent($duration, $events, $tempPossibleEvents) {
@@ -84,7 +92,7 @@ function nextEvent($duration, $events, $tempPossibleEvents) {
             $possibleEvents[] = $temp;
         } else {
             $temp['duration'] += $eventDuration;
-            $temp['events'][] = $value;
+            $temp['events'][$key] = $value;
             $newEvents = $events;
             unset($newEvents[$key]);
             nextEvent($duration, $newEvents, $temp);
@@ -92,13 +100,20 @@ function nextEvent($duration, $events, $tempPossibleEvents) {
     }
 }
 
-planEvents($openTimeSlots[0][1], $todayEvents);
+echo "<br><br><br>PLANNINGS: ";
 
-echo "<br><br>POSSIBLEEVENTS: ";
+foreach($openTimeSlots as $value) {
+    $timeSlotPlanning = planEvents($value[1], $todayEvents);
+    foreach($timeSlotPlanning['events'] as $key) {
+        unset($todayEvents[$key]);
+    }
 
-print "<pre>";
-print_r($possibleEvents);
-print "</pre>";
+    print "<pre>";
+    print_r($timeSlotPlanning);
+    print "</pre><br><br>";
+}
+
+
 
 
 
