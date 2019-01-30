@@ -20,7 +20,7 @@ $todayEvents = array();
 $somedayEvents = array();
 $somedayFixedEvents = array();
 
-while ($row = $result->fetch_array(MYSQLI_NUM)) {
+while ($row = $result->fetch_assoc()) {
     echo "<br>ADDED ROW";
     if ($row[6] == 1 && $row[5] == 0) {
         $somedayFixedEvents[] = $row;
@@ -55,7 +55,7 @@ foreach ($fixedEvents as $value) {
             break; //No need to add open time slot since there is an event directly after it.
         }
     }
-    echo "<br>NEXTSTARTTIME: ".$nextStartTime;
+    echo "<br>NEXTSTARTTIME: " . $nextStartTime;
     if ($nextStartTime != 2359) {
         echo "<br>ADDEDTIMESLOT: " . $endTime . " DURATION: " . $nextStartTime - $endTime;
         $openTimeSlots[] = array($endTime, $nextStartTime - $endTime);
