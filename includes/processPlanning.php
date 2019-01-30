@@ -117,6 +117,9 @@ foreach($openTimeSlots as $value) {
 
 
 
+print "<br><br>ITEMS LEFT: <pre>";
+print_r($todayEvents);
+print "</pre><br><br>";
 
 
 echo "<br><br>";
