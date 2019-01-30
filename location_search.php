@@ -3,7 +3,7 @@ $title = 'Home';
 require('includes/header.php');
 ?>
     <script>
-        var marker = new google.maps.Marker({draggable:true,title: 'destination'});
+        var marker = new google.maps.Marker({map: map, draggable:true, title: 'destination'});
         // Initialize and add the map
         function initMap() {
           var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
@@ -14,17 +14,11 @@ require('includes/header.php');
 
             marker.setPosition(event.latLng);
             marker.setMap(map);
-            marker.setAnimation(google.maps.Animation.DROP);
-            var lat = clickmarker.getPosition().lat();
-            var lng = clickmarker.getPosition().lng();
-            jQuery("#lat").val(lat);
-            jQuery("#lng").val(lng);
           });
         }
 
 
     </script>
-    <!-- API key needs to be updated -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd8kdXbfNiuxZfyi6UNHH2Rfpck0Pdwfc&callback=initMap"></script>
 
     <div id="map" style="width: 100%; height: 300px"></div><br>
