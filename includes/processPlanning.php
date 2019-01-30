@@ -65,6 +65,7 @@ foreach ($fixedEvents as $value) {
 $possibleEvents = array();
 
 function planEvents($duration, $events) {
+    echo "<br><br>DURATION: ".$duration;
     $temp = array();
     $temp['duration'] = 0;
     settype($temp['duration'], "integer");
