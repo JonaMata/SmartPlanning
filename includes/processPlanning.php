@@ -79,7 +79,7 @@ function nextEvent($duration, $events, $tempPossibleEvents) {
         $temp = $tempPossibleEvents;
         echo "<br><br>";
         print_r($temp);
-        if ($eventDuration + $temp['duration'] >= $duration) {
+        if ($eventDuration + $temp['duration'] > $duration) {
             global $possibleEvents;
             $possibleEvents[] = $temp;
         } else {
