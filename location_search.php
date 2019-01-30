@@ -12,6 +12,7 @@ require('includes/header.php');
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
 
+            marker.setMap(null);
             marker = new google.maps.Marker({
               position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
               map: map,
