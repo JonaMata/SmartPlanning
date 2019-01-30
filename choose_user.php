@@ -13,7 +13,6 @@ if($_SESSION['loggedIn']){
   if (count($result) == 0){
     echo "no users found";
   }
-  print_r("array:" . $result);
   while ($row = $result->fetch_array(MYSQLI_NUM)) {
     error_log(implode('\n', $row));
 
