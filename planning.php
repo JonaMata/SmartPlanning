@@ -30,7 +30,7 @@ if ($_SESSION['loggedIn']){
     </form>
 
     <?php
-    $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? ORDER BY start_time, end_time");
+    $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 1 ORDER BY start_time, end_time");
     $query->bind_param('is', $_SESSION['id'], $date);
     $query->execute();
 
