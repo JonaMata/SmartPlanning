@@ -50,7 +50,9 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
 <?php
 }else{
   ?>
-  <span style="font-size:100;">You need to be logged in.
+  <div class="item">
+  <span>You need to be logged in.
+  </div>
   <?php
 }
 require('includes/footer.php');
