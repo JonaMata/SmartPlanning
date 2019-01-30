@@ -88,6 +88,8 @@ function nextEvent($duration, $events, $tempPossibleEvents) {
 
 planEvents($openTimeSlots['duration'], $todayEvents);
 
+echo "<br><br>POSSIBLEEVENTS: ";
+
 print_r($possibleEvents);
 
 
