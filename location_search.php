@@ -15,6 +15,10 @@ require('includes/header.php');
             marker.setPosition(event.latLng);
             marker.setMap(map);
             marker.setAnimation(google.maps.Animation.DROP);
+            var lat = clickmarker.getPosition().lat();
+            var lng = clickmarker.getPosition().lng();
+            jQuery("#lat").val(lat);
+            jQuery("#lng").val(lng);
           });
         }
 
