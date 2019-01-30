@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script src="register_check.js"></script>
 
+<div class="item">
 <form method="POST">
   <!--Name: <input type="text" name="name" maxlength="100"><br>-->
   E-mail: <input type="email" name="email" maxlength="100" required><br>
@@ -26,6 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <span id='message'></span><br>
   <button type="submit" id="btnSubmit">Register</button>
 </form>
+</div>
 
 <?php
 require('includes/footer.php');
