@@ -75,6 +75,8 @@ function nextEvent($duration, $events, $tempPossibleEvents) {
     foreach($events as $value) {
         $eventDuration = date('Hi', strtotime($value['end_time']))-date('Hi', strtotime($value['start_time']));
         $temp = $tempPossibleEvents;
+        echo "<br><br>";
+        print_r($temp);
         if ($eventDuration + $temp['duration'] >= $duration) {
             global $possibleEvents;
             $possibleEvents[] = $temp;
