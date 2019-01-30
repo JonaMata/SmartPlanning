@@ -5,14 +5,15 @@ require('includes/header.php');
 <script>
         // Initialize and add the map
         function initMap() {
-          var pos = {lat: 52.14196, lng: 6.51223};  // university of twente
+          var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
           var map = new google.maps.Map(document.getElementById('map'), {zoom: 6, center: pos});
           google.maps.event.addListener(map, 'click', function(event) {
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
             var marker = new google.maps.Marker({
-              position: pos,
+              position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
               map: map,
+              draggable:true,
               title: 'destination'
             });
             marker.setMap(map);
