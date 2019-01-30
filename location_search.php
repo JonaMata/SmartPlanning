@@ -7,12 +7,13 @@ require('includes/header.php');
         // Initialize and add the map
         function initMap() {
           var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
-          var map = new google.maps.Map(document.getElementById('map'), {zoom: 5, center: pos, streetViewControl: false});
+          var map = new google.maps.Map(document.getElementById('map'), {zoom: 7, center: pos, streetViewControl: false});
           var marker = new google.maps.Marker({
               position: pos,
               map: map,
               draggable:true,
-              title: 'destination'
+              title: 'destination',
+              label: 'B'
             });
 
           google.maps.event.addListener(map, 'click', function(event) {
