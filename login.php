@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form method="POST">
   E-mail: <input type="email" name="email" required><br>
   Password: <input type="password" name="password" required><br>
-  <button style="width: 200px; height: 25px"type="submit">Login</button>
+  <button style="width: 200px; height: 20px"type="submit">Login</button>
 </form>
 </div>
 
