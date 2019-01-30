@@ -35,7 +35,7 @@ while ($row = $result->fetch_assoc()) {
 
 echo "<br><br>";
 
-print_r($fixedEvents);
+print_r($todayEvents);
 
 $openTimeSlots = array();
 
