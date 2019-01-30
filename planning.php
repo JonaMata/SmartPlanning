@@ -17,6 +17,7 @@ $result = $query->get_result();
 while ($row = $result->fetch_array(MYSQLI_NUM)) {
   error_log(implode('\n', $row));
 ?>
+
 <div class="item">
 <table>
   <tr>
