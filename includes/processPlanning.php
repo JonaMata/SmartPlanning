@@ -96,8 +96,9 @@ planEvents($openTimeSlots[0][1], $todayEvents);
 
 echo "<br><br>POSSIBLEEVENTS: ";
 
+print "<pre>";
 print_r($possibleEvents);
-
+print "</pre>";
 
 
 
