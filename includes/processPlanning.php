@@ -67,6 +67,7 @@ $possibleEvents = array();
 function planEvents($duration, $events) {
     $temp = array();
     $temp['duration'] = 0;
+    settype($temp['duration'], "integer");
     $temp['events'] = array();
     nextEvent($duration, $events, $temp);
 }
