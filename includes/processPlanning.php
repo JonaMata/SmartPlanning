@@ -22,11 +22,11 @@ $somedayFixedEvents = array();
 
 while ($row = $result->fetch_assoc()) {
     echo "<br>ADDED ROW";
-    if ($row[6] == 1 && $row[5] == 0) {
+    if ($row['can_next_day'] == 1 && $row['fixed'] == 0) {
         $somedayFixedEvents[] = $row;
-    } else if ($row[6] == 1) {
+    } else if ($row['can_next_day'] == 1) {
         $somedayEvents[] = $row;
-    } else if ($row[5] == 0) {
+    } else if ($row['fixed'] == 0) {
         $todayEvents[] = $row;
     } else {
         $fixedEvents[] = $row;
