@@ -31,7 +31,7 @@ session_start();
           <?php
           if($_SESSION['loggedIn']) {
             ?>
-            <p>Welcome <?php echo $_SESSION['username'];?>.</p>
+            <p>Welcome <?php echo $_SESSION['email'];?>.</p>
             <?php
           }
           ?>

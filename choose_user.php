@@ -16,6 +16,7 @@ if($_SESSION['loggedIn']){
 
   while ($row = $result->fetch_array(MYSQLI_NUM)) {
     error_log(implode('\n', $row));
+    print_r($row);
     ?>
     <form method="POST" action="planning.php">
       <input type="hidden" name="id" value="<?php echo $row[0];?>">
