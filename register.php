@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   Repeat password: <input type="password" id="password-check" name="password-check" maxlength="100" onkeyup="check();" required><br>
   Type: <input type="radio" name="type" value="1">User <input type="radio" name="type" value="0">Caretaker<br>
   <span id='message'></span><br>
-  <button type="submit" id="btnSubmit">Register</button>
+  <button style="height 200px; width:200px" type="submit" id="btnSubmit">Register</button>
 </form>
 </div>
 
