@@ -7,21 +7,24 @@ require('includes/header.php');
         // Initialize and add the map
         function initMap() {
           var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
-          var map = new google.maps.Map(document.getElementById('map'), {zoom: 6, center: pos});
+          var map = new google.maps.Map(document.getElementById('map'), {zoom: 5, center: pos, streetViewControl: false});
           google.maps.event.addListener(map, 'click', function(event) {
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
 
-            marker.setMap(null);
-            marker = new google.maps.Marker({
-              position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
-              map: map,
-              draggable:true,
-              title: 'destination'
-            });
-            marker.setMap(map);
+            if(marker == undefined){
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
+                map: map,
+                draggable:true,
+                animation: google.maps.Animation.DROP,
+                title: 'destination'
+              });
+            }
+            else {
+              marker.setPosition(location);
+            }
           });
-
         }
 
 
