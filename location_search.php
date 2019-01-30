@@ -13,8 +13,9 @@ require('includes/header.php');
             document.getElementById("lng2").value = event.latLng.lng();
 
             if(marker == undefined){
+              echo "meow";
               marker = new google.maps.Marker({
-                position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
+                position: event.latLng,
                 map: map,
                 draggable:true,
                 animation: google.maps.Animation.DROP,
@@ -22,6 +23,7 @@ require('includes/header.php');
               });
             }
             else {
+              echo "test";
               marker.setPosition(location);
             }
           });
