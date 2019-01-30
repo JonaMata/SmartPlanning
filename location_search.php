@@ -10,46 +10,12 @@ require('includes/header.php');
           google.maps.event.addListener(map, 'click', function(event) {
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
-            var marker = new google.maps.Marker({
-              position: pos,
-              map: map,
-              title: 'destination'
-            });
-            marker.setMap(map);
+            
           });
-          infoWindow = new google.maps.InfoWindow;
 
-          // get current geolocation data _______________________
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-
-              infoWindow.setPosition(pos);
-              infoWindow.setContent('Location found.');
-              infoWindow.open(map);
-              map.setCenter(pos);
-
-              document.getElementById("lat1").value =setlat;
-              document.getElementById("lng1").value = setlng;
-            }, function() {
-              handleLocationError(true, infoWindow, map.getCenter());
-            });
-          } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-          }
         }
 
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-          infoWindow.setPosition(pos);
-          infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-            infoWindow.open(map);
-        }
+
     </script>
     <!-- API key needs to be updated -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd8kdXbfNiuxZfyi6UNHH2Rfpck0Pdwfc&callback=initMap"></script>
