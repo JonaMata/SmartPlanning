@@ -106,7 +106,7 @@ echo "<br><br><br>PLANNINGS: ";
 
 foreach($openTimeSlots as $value) {
     $timeSlotPlanning = planEvents($value[1], $todayEvents);
-    foreach($timeSlotPlanning['events'] as $key) {
+    foreach($timeSlotPlanning['events'] as $key=>$value) {
         unset($todayEvents[$key]);
     }
 
