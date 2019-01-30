@@ -63,6 +63,7 @@ foreach ($fixedEvents as $value) {
 }
 
 
+$possibleEvents = array();
 
 function planEvents($duration, $events) {
     echo "<br><br>DURATION: ".$duration;
@@ -70,6 +71,7 @@ function planEvents($duration, $events) {
     $temp['duration'] = 0;
     settype($temp['duration'], "integer");
     $temp['events'] = array();
+    global $possibleEvents;
     $possibleEvents = array();
     nextEvent($duration, $events, $temp);
     $bestOption = $possibleEvents[0];
