@@ -8,25 +8,29 @@ require('includes/header.php');
         function initMap() {
           var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
           var map = new google.maps.Map(document.getElementById('map'), {zoom: 5, center: pos, streetViewControl: false});
+
           google.maps.event.addListener(map, 'click', function(event) {
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
 
-            if(marker == undefined){
-              echo "meow";
-              marker = new google.maps.Marker({
-                position: event.latLng,
-                map: map,
-                draggable:true,
-                animation: google.maps.Animation.DROP,
-                title: 'destination'
-              });
-            }
-            else {
-              echo "test";
-              marker.setPosition(location);
-            }
+            placeMarker(event.latLng);
           });
+        }
+        function placeMarker(location) {
+          if(marker == undefined){
+            echo "meow";
+            marker = new google.maps.Marker({
+              position: location,
+              map: map,
+              draggable:true,
+              animation: google.maps.Animation.DROP,
+              title: 'destination'
+            });
+          }
+          else {
+            echo "test";
+            marker.setPosition(location);
+          }
         }
 
 
