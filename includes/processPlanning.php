@@ -62,6 +62,35 @@ foreach ($fixedEvents as $value) {
     }
 }
 
+$possibleEvents = array();
+
+function planEvents($duration, $events) {
+    $temp = array();
+    $temp['duration'] = 0;
+    $temp['events'] = array();
+    nextEvent($duration, $events, $temp);
+}
+
+function nextEvent($duration, $events, $tempPossibleEvents) {
+    foreach($events as $value) {
+        $eventDuration = date('Hi', strtotime($value['end_time']))-date('Hi', strtotime($value['start_time']));
+        $temp = $tempPossibleEvents;
+        if ($eventDuration + $temp['duration'] >= $duration) {
+            global $possibleEvents;
+            $possibleEvents[] = $temp;
+        } else {
+            $temp['duration'] += $eventDuration;
+            $temp['events'][] = $value;
+            nextEvent($duration, \array_diff($events, [$value]), $temp);
+        }
+    }
+}
+
+print_r($possibleEvents);
+
+
+
+
 echo "<br><br>";
 
 print_r($openTimeSlots);
