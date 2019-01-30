@@ -74,7 +74,7 @@ function planEvents($duration, $events) {
 }
 
 function nextEvent($duration, $events, $tempPossibleEvents) {
-    foreach($events as $value) {
+    foreach($events as $key=>$value) {
         $eventDuration = date('Hi', strtotime($value['end_time']))-date('Hi', strtotime($value['start_time']));
         $temp = $tempPossibleEvents;
         echo "<br><br>";
@@ -85,7 +85,9 @@ function nextEvent($duration, $events, $tempPossibleEvents) {
         } else {
             $temp['duration'] += $eventDuration;
             $temp['events'][] = $value;
-            nextEvent($duration, \array_diff($events, [$value]), $temp);
+            $newEvents = $events;
+            unset($newEvents[$key]);
+            nextEvent($duration, $newEvents, $temp);
         }
     }
 }
