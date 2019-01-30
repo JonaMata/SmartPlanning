@@ -10,7 +10,12 @@ require('includes/header.php');
           google.maps.event.addListener(map, 'click', function(event) {
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
-            
+            var marker = new google.maps.Marker({
+              position: pos,
+              map: map,
+              title: 'destination'
+            });
+            marker.setMap(map);
           });
 
         }
