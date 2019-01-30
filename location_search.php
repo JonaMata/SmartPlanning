@@ -2,7 +2,8 @@
 $title = 'Home';
 require('includes/header.php');
 ?>
-<script>
+    <script>
+        var marker = new google.maps.Marker({draggable:true,title: 'destination'});
         // Initialize and add the map
         function initMap() {
           var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
@@ -10,15 +11,11 @@ require('includes/header.php');
           google.maps.event.addListener(map, 'click', function(event) {
             document.getElementById("lat2").value = event.latLng.lat();
             document.getElementById("lng2").value = event.latLng.lng();
-            var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
-              map: map,
-              draggable:true,
-              title: 'destination'
-            });
-            marker.setMap(map);
-          });
 
+            marker.setPosition(event.latLng);
+            marker.setMap(map);
+            marker.setAnimation(google.maps.Animation.DROP);
+          });
         }
 
 
