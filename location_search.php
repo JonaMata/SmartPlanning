@@ -69,8 +69,8 @@ require('includes/header.php');
 
         var directionsService = new google.maps.DirectionsService();
         var request = {
-          origin: new GLatLng(document.getElementById("lat1"),document.getElementById("long1")), // LatLng|string
-          destination: new GLatLng(document.getElementById("lat2"),document.getElementById("long2")), // LatLng|string
+          origin: new google.maps.LatLng(document.getElementById("lat1"),document.getElementById("long1")), // LatLng|string
+          destination: new google.maps.LatLng(document.getElementById("lat2"),document.getElementById("long2")), // LatLng|string
           travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
 
