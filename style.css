@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 body, html {
   margin: 0;
 }
@@ -10,7 +11,7 @@ html {
 body {
   display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px auto 100px;
+    grid-template-rows: 70px auto 100px;
     grid-template-areas:
     "nav"
     "content"
@@ -23,18 +24,53 @@ body {
 }
 
 
+
+nav a {
+  display: inline-block;
+  color: rgb(255, 167,0);
+  text-decoration: none;
+  height: 50px;
+  margin-right: 20px;
+  font-size: 30px;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-weight: bold;
+  /* font-family: 'Montserrat', sans-serif; */
+}
+
 #content {
   grid-area: content;
   -ms-grid-column: 1;
   -ms-grid-row: 2;
+  background: rgb(255, 167,0);
 }
+
+
+.bubble {
+ border: 1px solid rgb(255, 167, 0);
+ border-radius: 300px;
+ padding: 30px;
+ text-align: center;
+ background-color: #ffca66;
+ min-height: 10px;
+ min-width: 50px;
+ font-size: 30px;
+ font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+ font-weight: bold;
+ transition: 0.5s;
+}
+
+.bubble: hover {
+  background-color: powderblue;
+}
+
+
 
 footer {
   grid-area: footer;
   -ms-grid-column: 1;
   -ms-grid-row: 3;
-  background: darkgrey;
-}
+  background: rgb(255, 167,0);
+
 
 
 

@@ -51,6 +51,12 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
     </script>
 
     <?php
+}else{
+  ?>
+  <div class="bubble">
+  <span>You need to be logged in.
+  </div>
+  <?php
 }
 
 require "includes/footer.php";

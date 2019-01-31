@@ -73,9 +73,11 @@ if ($_SESSION['loggedIn']){
 
     <?php
 }else{
-?>
-<span style="font-size:100;">You need to be logged in.
+  ?>
+  <div class="bubble">
+  <span>You need to be logged in.
+  </div>
   <?php
-  }
-  require('includes/footer.php');
+}
+require('includes/footer.php');
   ?>
