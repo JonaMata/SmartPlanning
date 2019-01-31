@@ -62,7 +62,7 @@ body {
 
 
 .bubble:hover {
-    background-color: powderblue;
+    opacity: 1;
 }
 
 
