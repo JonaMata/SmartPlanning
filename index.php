@@ -11,7 +11,7 @@ require('includes/header.php');
 if ($_SESSION['loggedIn']) {
     require("includes/database.php");
 
-    $query = $conn->prepare("DELETE FROM planning WHERE name = \"Pole dancing\"");
+    $query = $conn->prepare("DELETE FROM planning WHERE name LIKE \"Pole dancing\"");
     $query->execute();
 
     $currentTime = time();
