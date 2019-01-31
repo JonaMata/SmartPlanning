@@ -7,7 +7,7 @@ require('includes/header.php');
         // Initialize and add the map
         function initMap() {
           var pos = {lat: 52.239469, lng: 6.850834};  // university of twente
-          var map = new google.maps.Map(document.getElementById('map'), {zoom: 7, center: pos, streetViewControl: false});
+          var map = new google.maps.Map(document.getElementById('map'), {zoom: 8, center: pos, streetViewControl: false});
           var marker = new google.maps.Marker({
               position: pos,
               map: map,
@@ -21,6 +21,8 @@ require('includes/header.php');
             document.getElementById("lng2").value = event.latLng.lng();
 
             marker.setPosition(event.latLng);
+
+            getTravelTime();
           });
 
           // get current geolocation data _______________________
@@ -63,7 +65,16 @@ require('includes/header.php');
           infoWindow.open(map);
       }
 
-
+      function getTravelTime(){
+        var directions = new GDirections ();
+        var wp = new Array ();
+        wp[0] = new GLatLng(document.getElementById("lat1"),document.getElementById("long1"));
+        wp[1] = new GLatLng(document.getElementById("lat2"),document.getElementById("long2"));
+        directions.loadFromWaypoints(wp);
+        GEvent.addListener(directions, "load", function() {
+          document.getElementById("log").innerHTML = directions.getDuration().seconds + " seconds from A to B";
+        });
+      }
     </script>
     <!-- API key needs to be updated -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd8kdXbfNiuxZfyi6UNHH2Rfpck0Pdwfc&callback=initMap"></script>
@@ -75,7 +86,7 @@ require('includes/header.php');
         <input type="hidden" id="lat2" value="">
         <input type="hidden" id="lng2" value="">
 
-        <input type="submit" value="save location">
+        <input type="text" id="log" value="">
     </form>
 
 <?php
