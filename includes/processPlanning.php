@@ -22,7 +22,7 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
     $somedayFixedEvents = array();
 
     while ($row = $result->fetch_assoc()) {
-        echo "<br>ADDED ROW";
+//        echo "<br>ADDED ROW";
         if ($row['invisible'] == 1) break;
         if ($row['can_next_day'] == 1 && $row['fixed'] == 0) {
             $somedayFixedEvents[] = $row;
@@ -35,21 +35,21 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
         }
     }
 
-    echo "<br><br>";
-
-    print_r($todayEvents);
+//    echo "<br><br>";
+//
+//    print_r($todayEvents);
 
     $openTimeSlots = array();
 
 
     foreach ($fixedEvents as $value) {
-        $nextStartTime = 2359;
-        $endTime = date('Hi', strtotime($value['end_time']));
+        $nextStartTime = PHP_INT_MAX;
+        $endTime = strtotime($value['end_time']);
 
-        echo "<br>EVENT: " . $value['name'] . " ENDTIME: " . $endTime;
+//        echo "<br>EVENT: " . $value['name'] . " ENDTIME: " . $endTime;
         foreach ($fixedEvents as $testValue) {
-            $startTime = date('Hi', strtotime($testValue['start_time']));
-            echo "<br>EVENT: " . $testValue['name'] . " STARTTIME: " . $startTime;
+            $startTime = strtotime($testValue['start_time']);
+//            echo "<br>EVENT: " . $testValue['name'] . " STARTTIME: " . $startTime;
             if ($startTime > $endTime && $startTime < $nextStartTime) {
                 $nextStartTime = $startTime;
             }
@@ -57,9 +57,9 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
                 break; //No need to add open time slot since there is an event directly after it.
             }
         }
-        echo "<br>NEXTSTARTTIME: " . $nextStartTime;
-        if ($nextStartTime != 2359) {
-            echo "<br>ADDEDTIMESLOT: " . $endTime . " DURATION: " . $nextStartTime - $endTime;
+//        echo "<br>NEXTSTARTTIME: " . $nextStartTime;
+        if ($nextStartTime != PHP_INT_MAX) {
+//            echo "<br>ADDEDTIMESLOT: " . $endTime . " DURATION: " . $nextStartTime - $endTime;
             $openTimeSlots[] = array($endTime, $nextStartTime - $endTime);
         }
     }
@@ -69,7 +69,7 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
 
     function planEvents($duration, $events)
     {
-        echo "<br><br>DURATION: " . $duration;
+//        echo "<br><br>DURATION: " . $duration;
         $temp = array();
         $temp['duration'] = 0;
         settype($temp['duration'], "integer");
@@ -89,10 +89,10 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
     function nextEvent($duration, $events, $tempPossibleEvents)
     {
         foreach ($events as $key => $value) {
-            $eventDuration = date('Hi', strtotime($value['end_time'])) - date('Hi', strtotime($value['start_time']));
+            $eventDuration = strtotime($value['end_time']) - strtotime($value['start_time']);
             $temp = $tempPossibleEvents;
-            echo "<br><br>";
-            print_r($temp);
+//            echo "<br><br>";
+//            print_r($temp);
             if ($eventDuration + $temp['duration'] > $duration) {
                 global $possibleEvents;
                 $possibleEvents[] = $temp;
@@ -105,21 +105,26 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
             }
         }
     }
-
-    echo "<br><br><br>PLANNINGS: ";
+//
+//    echo "<br><br><br>PLANNINGS: ";
 
     $updateEvents = array();
 
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
+        $startTime = $value[0];
         foreach ($timeSlotPlanning['events'] as $key => $value) {
             unset($todayEvents[$key]);
+            $value['new_start_time'] = date('H:i', $startTime);
+            $endTime = $startTime + (strtotime($value['end_time'])-strtotime($value['start_time']));
+            $value['new_end_time'] = date('H:i', $endTime);
             $updateEvents[] = $value;
+            $startTime = $endTime;
         }
-
-        print "<pre>";
-        print_r($timeSlotPlanning);
-        print "</pre><br><br>";
+//
+//        print "<pre>";
+//        print_r($timeSlotPlanning);
+//        print "</pre><br><br>";
     }
 
 
@@ -136,17 +141,17 @@ if ($row = $result->fetch_array(MYSQLI_NUM)) {
         $query->bind_param('sssss', $value['name'], $value['description'], $value['location'], $value['start_time'], $value['end_time']);
         $query->execute();
     }
-
-
-    print "<br><br>ITEMS LEFT: <pre>";
-    print_r($todayEvents);
-    print "</pre><br><br>";
-
-
-    echo "<br><br>";
-
-    print_r($openTimeSlots);
-
-
-    echo "<br><br><br>";
+//
+//
+//    print "<br><br>ITEMS LEFT: <pre>";
+//    print_r($todayEvents);
+//    print "</pre><br><br>";
+//
+//
+//    echo "<br><br>";
+//
+//    print_r($openTimeSlots);
+//
+//
+//    echo "<br><br><br>";
 }
