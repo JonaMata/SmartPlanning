@@ -1,6 +1,6 @@
 <?php
 
-$query = $conn->prepare("SELECT fixed FROM planning WHERE userid = {$_SESSION['id']} AND date = ? AND fixed = 0 AND invisible = 0");
+$query = $conn->prepare("SELECT fixed FROM planning WHERE userid = {$_SESSION['id']} AND date = ? AND fixed = 1");
 $query->bind_param('s', date('Y-m-d'));
 $query->execute();
 
@@ -22,32 +22,34 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
     $somedayFixedEvents = array();
 
     while ($row = $result->fetch_assoc()) {
-        if ($row['invisible'] == 1) {
-
+//        echo "<br>ADDED ROW";
+        if ($row['invisible'] == 1) break;
+        if ($row['can_next_day'] == 1 && $row['fixed'] == 0) {
+            $somedayFixedEvents[] = $row;
+        } else if ($row['can_next_day'] == 1) {
+            $somedayEvents[] = $row;
+        } else if ($row['fixed'] == 0) {
+            $todayEvents[] = $row;
         } else {
-            if ($row['fixed'] == 0) {
-                $todayEvents[] = $row;
-            } else {
-                $fixedEvents[] = $row;
-            }
+            $fixedEvents[] = $row;
         }
     }
 
-    echo "<br>Today: <pre>";
-    print_r($todayEvents);
-echo "</pre><br>Fixed: <pre>";
-    print_r($fixedEvents);
-echo "</pre>";
+//    echo "<br><br>";
+//
+//    print_r($todayEvents);
 
     $openTimeSlots = array();
 
 
     foreach ($fixedEvents as $value) {
-        $nextStartTime = 2359;
-        $endTime = date('Hi', strtotime($value['end_time']));
+        $nextStartTime = PHP_INT_MAX;
+        $endTime = strtotime($value['end_time']);
 
+//        echo "<br>EVENT: " . $value['name'] . " ENDTIME: " . $endTime;
         foreach ($fixedEvents as $testValue) {
-            $startTime = date('Hi', strtotime($testValue['start_time']));
+            $startTime = strtotime($testValue['start_time']);
+//            echo "<br>EVENT: " . $testValue['name'] . " STARTTIME: " . $startTime;
             if ($startTime > $endTime && $startTime < $nextStartTime) {
                 $nextStartTime = $startTime;
             }
@@ -55,7 +57,10 @@ echo "</pre>";
                 break; //No need to add open time slot since there is an event directly after it.
             }
         }
-        if ($nextStartTime != 2359) {
+//        echo "<br>NEXTSTARTTIME: " . $nextStartTime;
+        if ($nextStartTime != PHP_INT_MAX) {
+//            echo "<br>ADDEDTIMESLOT: " . $endTime . " DURATION: " . $nextStartTime - $endTime;
+
             $openTimeSlots[] = array($endTime, $nextStartTime - $endTime);
         }
     }
@@ -65,6 +70,7 @@ echo "</pre>";
 
     function planEvents($duration, $events)
     {
+//        echo "<br><br>DURATION: " . $duration;
         $temp = array();
         $temp['duration'] = 0;
         settype($temp['duration'], "integer");
@@ -83,39 +89,43 @@ echo "</pre>";
 
     function nextEvent($duration, $events, $tempPossibleEvents)
     {
-        echo "<br>YES<br>";
-        if($tempPossibleEvents['duration'] == $duration || count($events) <= 0){
-            echo "<br>PLANNED<br>";
-            global $possibleEvents;
-            $possibleEvents[] = $tempPossibleEvents;
-        } else {
-            foreach ($events as $key => $value) {
-                $eventDuration = date('Hi', strtotime($value['end_time'])) - date('Hi', strtotime($value['start_time']));
-                $temp = $tempPossibleEvents;
-                if ($eventDuration + $temp['duration'] > $duration) {
-                    echo "<br>PLANNED<br>";
-                    global $possibleEvents;
-                    $possibleEvents[] = $temp;
-                } else {
-                    $temp['duration'] += $eventDuration;
-                    $temp['events'][$key] = $value;
-                    $newEvents = $events;
-                    unset($newEvents[$key]);
-                    nextEvent($duration, $newEvents, $temp);
-                }
+        foreach ($events as $key => $value) {
+            $eventDuration = strtotime($value['end_time']) - strtotime($value['start_time']);
+            $temp = $tempPossibleEvents;
+//            echo "<br><br>";
+//            print_r($temp);
+            if ($eventDuration + $temp['duration'] > $duration) {
+                global $possibleEvents;
+                $possibleEvents[] = $temp;
+            } else {
+                $temp['duration'] += $eventDuration;
+                $temp['events'][$key] = $value;
+                $newEvents = $events;
+                unset($newEvents[$key]);
+                nextEvent($duration, $newEvents, $temp);
             }
         }
     }
+//
+//    echo "<br><br><br>PLANNINGS: ";
 
     $updateEvents = array();
 
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
-        print_r($timeSlotPlanning);
-        foreach ($timeSlotPlanning['events'] as $key=>$newValue) {
+        $startTime = $value[0];
+        foreach ($timeSlotPlanning['events'] as $key => $value) {
             unset($todayEvents[$key]);
-            $updateEvents[] = $newValue;
+            $value['new_start_time'] = date('H:i', $startTime);
+            $endTime = $startTime + (strtotime($value['end_time'])-strtotime($value['start_time']));
+            $value['new_end_time'] = date('H:i', $endTime);
+            $updateEvents[] = $value;
+            $startTime = $endTime;
         }
+//
+//        print "<pre>";
+//        print_r($timeSlotPlanning);
+//        print "</pre><br><br>";
     }
 
 
@@ -132,5 +142,17 @@ echo "</pre>";
         $query->bind_param('sssss', $value['name'], $value['description'], $value['location'], $value['start_time'], $value['end_time']);
         $query->execute();
     }
-
+//
+//
+//    print "<br><br>ITEMS LEFT: <pre>";
+//    print_r($todayEvents);
+//    print "</pre><br><br>";
+//
+//
+//    echo "<br><br>";
+//
+//    print_r($openTimeSlots);
+//
+//
+//    echo "<br><br><br>";
 }

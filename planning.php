@@ -71,7 +71,38 @@ if ($_SESSION['loggedIn']) {
         <?php
     }
 
-
+    while ($row = $result->fetch_array(MYSQLI_NUM)) {
+        error_log(implode('\n', $row));
+        ?>
+        <table>
+            <tr>
+                <th>Name</th>
+                <td>
+                <?php echo $row[0]; ?></th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                <?php echo $row[1]; ?></th>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>
+                <?php echo $row[2]; ?></th>
+            </tr>
+            <tr>
+                <th>Start time</th>
+                <td>
+                <?php echo $row[3]; ?></th>
+            </tr>
+            <tr>
+                <th>End time</th>
+                <td>
+                <?php echo $row[4]; ?></th>
+            </tr>
+        </table>
+        <?php
+    }
     if($_GET['plan'] == "no") {
         ?>
         <h2>Unfixed events</h2>
