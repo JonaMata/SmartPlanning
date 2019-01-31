@@ -18,7 +18,8 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
   error_log(implode('\n', $row));
 ?>
 
-<div class="item">
+
+  <button class = "item">
 <table>
   <tr>
     <th>Name</th>
@@ -41,7 +42,7 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
     <td><?php echo $row[4];?></th>
   </tr>
 </table>
-</div>
+</button>
 <?php
 }
 ?>
