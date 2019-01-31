@@ -80,7 +80,7 @@ require('includes/header.php');
             document.getElementById("log").value = + point.duration.text + ' (' + point.distance.text + ") from A to B";
           }
           else {
-              document.getElementById("log").value = "unable to calculate";
+              document.getElementById("log").value = "unable to calculate. Status: " + status;
           }
         });
       }
@@ -89,7 +89,7 @@ require('includes/header.php');
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd8kdXbfNiuxZfyi6UNHH2Rfpck0Pdwfc&callback=initMap"></script>
 
     <div id="map" style="width: 95%; height: 300px"></div><br>
-    <form id="start" method="post" action="saveLoc.php">
+    <form id="travel">
         <input type="hidden" id="lat1" value="">
         <input type="hidden" id="lng1" value="">
         <input type="hidden" id="lat2" value="">
