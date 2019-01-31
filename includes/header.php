@@ -75,6 +75,9 @@ session_start();
               ?>">Add-event</a></li>
           <?php
           if($_SESSION['loggedIn']) {
+              if($_SESSION['type'] == "user") {
+                  echo "<li><a href=\"addcaretaker.php\">Add Caretaker</a></li>";
+              }
             ?>
             <li><a href="logout.php">Log out</a></li>
             <?php
