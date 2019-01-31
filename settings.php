@@ -8,10 +8,16 @@ require "includes/database.php";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $updateQuery = $conn->prepare("UPDATE association SET category = ? WHERE userid = {$_SESSION['id']} AND caretaker_userid = ?");
-    foreach ($_POST as $key => $value) {
-        $updateQuery->bind_param('si', $value, $key);
-        $updateQuery->execute();
+    if(isset($_POST['delete'])) {
+        $deleteQuery = $conn->prepare("DELETE FROM association WHERE caretaker_userid = {$_POST['delete']} AND userid = {$_SESSION['id']}");
+        $deleteQuery->execute();
+    } else {
+
+        $updateQuery = $conn->prepare("UPDATE association SET category = ? WHERE userid = {$_SESSION['id']} AND caretaker_userid = ?");
+        foreach ($_POST as $key => $value) {
+            $updateQuery->bind_param('si', $value, $key);
+            $updateQuery->execute();
+        }
     }
 }
 
@@ -47,6 +53,12 @@ $result = $query->get_result();
                                 <option value="other" <?php echo($category == "other" ? "selected" : ""); ?>>Other
                                 </option>
                             </select>
+                        </td>
+                        <td>
+                            <form method="post">
+                            <input type="hidden" name="delete" value="<?php echo $row[2]; ?>">
+                            <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     <?php
