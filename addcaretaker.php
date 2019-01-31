@@ -38,6 +38,12 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
     <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://<?php echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]."%3Femail=".$_SESSION['email']."%26secret=".$secret; ?>"/>
 
     <?php
+}else{
+  ?>
+  <div class="item">
+  <span>You need to be logged in.
+  </div>
+  <?php
 }
 
 require "includes/footer.php";
