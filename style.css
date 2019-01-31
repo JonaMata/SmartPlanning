@@ -171,7 +171,7 @@ nav {  grid-area: nav;
   }
 
 
- }
+
 
 
 
@@ -221,4 +221,5 @@ footer {
   -ms-grid-column: 1;
   -ms-grid-row: 3;
   background: rgb(255, 167,0);
+}
 }
