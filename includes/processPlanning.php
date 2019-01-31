@@ -95,23 +95,29 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
 
     function nextEvent($duration, $events, $tempPossibleEvents)
     {
-        foreach ($events as $key => $value) {
-            $eventDuration = strtotime($value['end_time']) - strtotime($value['start_time']);
-            $temp = $tempPossibleEvents;
+        if ($tempPossibleEvents['duration'] == $duration || count($events) <= 0) {
+            global $possibleEvents;
+            $possibleEvents[] = $tempPossibleEvents;
+        } else {
+            foreach ($events as $key => $value) {
+                $eventDuration = strtotime($value['end_time']) - strtotime($value['start_time']);
+                $temp = $tempPossibleEvents;
 //            echo "<br><br>";
 //            print_r($temp);
-            if ($eventDuration + $temp['duration'] > $duration) {
-                global $possibleEvents;
-                $possibleEvents[] = $temp;
-            } else {
-                $temp['duration'] += $eventDuration;
-                $temp['events'][$key] = $value;
-                $newEvents = $events;
-                unset($newEvents[$key]);
-                nextEvent($duration, $newEvents, $temp);
+                if ($eventDuration + $temp['duration'] > $duration) {
+                    global $possibleEvents;
+                    $possibleEvents[] = $temp;
+                } else {
+                    $temp['duration'] += $eventDuration;
+                    $temp['events'][$key] = $value;
+                    $newEvents = $events;
+                    unset($newEvents[$key]);
+                    nextEvent($duration, $newEvents, $temp);
+                }
             }
         }
     }
+
 //
 //    echo "<br><br><br>PLANNINGS: ";
 
@@ -122,11 +128,11 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
         $startTime = $value[0];
         echo "<br>TIMESLOTPLANNING: <pre>";
         print_r($timeSlotPlanning);
-        echo"</pre><br>";
+        echo "</pre><br>";
         foreach ($timeSlotPlanning['events'] as $key => $newValue) {
             unset($todayEvents[$key]);
             $newValue['new_start_time'] = date('H:i', $startTime);
-            $endTime = $startTime + (strtotime($newValue['end_time'])-strtotime($newValue['start_time']));
+            $endTime = $startTime + (strtotime($newValue['end_time']) - strtotime($newValue['start_time']));
             $newValue['new_end_time'] = date('H:i', $endTime);
             $updateEvents[] = $newValue;
             $startTime = $endTime;
