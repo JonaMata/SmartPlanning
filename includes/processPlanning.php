@@ -78,18 +78,23 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
 
     function nextEvent($duration, $events, $tempPossibleEvents)
     {
-        foreach ($events as $key => $value) {
-            $eventDuration = date('Hi', strtotime($value['end_time'])) - date('Hi', strtotime($value['start_time']));
-            $temp = $tempPossibleEvents;
-            if ($eventDuration + $temp['duration'] > $duration) {
-                global $possibleEvents;
-                $possibleEvents[] = $temp;
-            } else {
-                $temp['duration'] += $eventDuration;
-                $temp['events'][$key] = $value;
-                $newEvents = $events;
-                unset($newEvents[$key]);
-                nextEvent($duration, $newEvents, $temp);
+        if($tempPossibleEvents['duration'] == $duration){
+            global $possibleEvents;
+            $possibleEvents[] = $tempPossibleEvents;
+        } else {
+            foreach ($events as $key => $value) {
+                $eventDuration = date('Hi', strtotime($value['end_time'])) - date('Hi', strtotime($value['start_time']));
+                $temp = $tempPossibleEvents;
+                if ($eventDuration + $temp['duration'] > $duration) {
+                    global $possibleEvents;
+                    $possibleEvents[] = $temp;
+                } else {
+                    $temp['duration'] += $eventDuration;
+                    $temp['events'][$key] = $value;
+                    $newEvents = $events;
+                    unset($newEvents[$key]);
+                    nextEvent($duration, $newEvents, $temp);
+                }
             }
         }
     }
@@ -98,9 +103,9 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
 
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
-        foreach ($timeSlotPlanning['events'] as $key => $value) {
+        foreach ($timeSlotPlanning['events'] as $key=>$newValue) {
             unset($todayEvents[$key]);
-            $updateEvents[] = $value;
+            $updateEvents[] = $newValue;
         }
     }
 
