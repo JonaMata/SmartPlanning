@@ -39,7 +39,7 @@ session_start();
       if($_SESSION['loggedIn']) {
         ?>
         <a href="logout.php">Log out</a>
-        <span>Welcome <?php echo $_SESSION['username'];?>.</span>
+        <span style="font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-weight: bold;">Welcome <?php echo $_SESSION['username'];?>.</span>
         <?php
       }
       else{
