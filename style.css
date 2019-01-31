@@ -67,7 +67,7 @@ nav a {
 }
 
 .item: hover {
-  opacity: 1;
+  background-color: powderblue;
 }
 
 
