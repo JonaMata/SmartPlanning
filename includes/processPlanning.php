@@ -117,12 +117,12 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
         $startTime = $value[0];
-        foreach ($timeSlotPlanning['events'] as $key => $value) {
+        foreach ($timeSlotPlanning['events'] as $key => $newValue) {
             unset($todayEvents[$key]);
-            $value['new_start_time'] = date('H:i', $startTime);
-            $endTime = $startTime + (strtotime($value['end_time'])-strtotime($value['start_time']));
-            $value['new_end_time'] = date('H:i', $endTime);
-            $updateEvents[] = $value;
+            $newValue['new_start_time'] = date('H:i', $startTime);
+            $endTime = $startTime + (strtotime($newValue['end_time'])-strtotime($newValue['start_time']));
+            $newValue['new_end_time'] = date('H:i', $endTime);
+            $updateEvents[] = $newValue;
             $startTime = $endTime;
         }
 //
