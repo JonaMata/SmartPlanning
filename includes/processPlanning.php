@@ -125,7 +125,7 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
 
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
-//        $startTime = $value[0];
+        $startTime = $value[0];
 //        echo "<br>TIMESLOTPLANNING: <pre>";
 //        print_r($timeSlotPlanning);
 //        echo "</pre><br>";
