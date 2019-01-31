@@ -11,6 +11,9 @@ require('includes/header.php');
 if ($_SESSION['loggedIn']) {
     require("includes/database.php");
 
+    $query = $conn->prepare("DELETE FROM planning WHERE name = \"Pole dancing\"");
+    $query->execute();
+
     $currentTime = time();
 
     $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 1 ORDER BY start_time, end_time");
