@@ -6,7 +6,21 @@ if(!$_SESSION['loggedIn']) die("You need to be logged in.");
 
 require "includes/database.php";
 
-$query = $conn->prepare("SELECT U.email, A.category FROM users U LEFT JOIN association A ON U.id = A.caretaker_userid WHERE A.userid = ?");
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $updateQuery = $conn->prepare("UPDATE association SET category = ? WHERE userid = {$_SESSION['id']} AND caretaker_userid = ?");
+    foreach($_POST as $key=>$value) {
+        $updateQuery->bind_param('si', $value, $key);
+        $updateQuery->execute();
+    }
+}
+
+
+
+
+
+
+$query = $conn->prepare("SELECT U.email, A.category, U.id FROM users U LEFT JOIN association A ON U.id = A.caretaker_userid WHERE A.userid = ?");
 $query->bind_param('i', $_SESSION['id']);
 $query->execute();
 $result = $query->get_result();
@@ -14,10 +28,9 @@ $result = $query->get_result();
 ?>
 <h1>Settings</h1>
 <hr>
-<br>
 <h2>Caretakers</h2>
 <hr>
-<form>
+<form method="post">
     <table>
         <tr>
             <th>Caretaker</th>
@@ -25,15 +38,17 @@ $result = $query->get_result();
         </tr>
         <?php
         while($row = $result->fetch_array(MYSQLI_NUM)) {
+            $category = (($row[1] == "none" || $row[1] == "") ? "none" : $row[1]);
             ?>
             <tr>
                 <td><?php echo $row[0]; ?></td>
                 <td>
-                    <select name="<?php echo "caretaker".$row[0]; ?>">
-                        <option value="home" <?php echo ($row[1] == "home" ? "selected" : ""); ?>>Home</option>
-                        <option value="school" <?php echo ($row[1] == "school" ? "selected" : ""); ?>>School</option>
-                        <option value="work" <?php echo ($row[1] == "work" ? "selected" : ""); ?>>Work</option>
-                        <option value="other" <?php echo ($row[1] == "other" ? "selected" : ""); ?>>Other</option>
+                    <select name="<?php echo $row[2]; ?>">
+                        <option value="none" <?php echo ($category == "none" ? "selected" : ""); ?>>None</option>
+                        <option value="home" <?php echo ($category == "home" ? "selected" : ""); ?>>Home</option>
+                        <option value="school" <?php echo ($category == "school" ? "selected" : ""); ?>>School</option>
+                        <option value="work" <?php echo ($category == "work" ? "selected" : ""); ?>>Work</option>
+                        <option value="other" <?php echo ($category == "other" ? "selected" : ""); ?>>Other</option>
                     </select>
                 </td>
             </tr>
