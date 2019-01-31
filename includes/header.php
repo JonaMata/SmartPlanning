@@ -58,7 +58,7 @@ session_start();
             echo "choose_user.php?rel=planning.php";
           }
           else{
-            echo "planning.php";
+            echo "planning.php?plan=no";
           }
 
           ?>

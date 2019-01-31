@@ -111,6 +111,9 @@ if ($_SESSION['loggedIn']) {
         </div>
         <?php
     }
+    ?>
+    <br><br><br><br><br><a href="planning.php">Force Plan</a>
+    <?php
 
 } else {
     ?>
