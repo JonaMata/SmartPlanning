@@ -66,6 +66,7 @@ require('includes/header.php');
       }
 
       function getTravelTime(){
+        document.getElementById("log").value = "test";
         var directions = new GDirections ();
         var wp = new Array ();
         wp[0] = new GLatLng(document.getElementById("lat1"),document.getElementById("long1"));
