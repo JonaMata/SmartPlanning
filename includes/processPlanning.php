@@ -83,6 +83,7 @@ echo "</pre>";
 
     function nextEvent($duration, $events, $tempPossibleEvents)
     {
+        echo "<br>YES<br>";
         if($tempPossibleEvents['duration'] == $duration){
             global $possibleEvents;
             $possibleEvents[] = $tempPossibleEvents;
