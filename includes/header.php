@@ -30,7 +30,7 @@ session_start();
   </head>
   <body>
     <nav>
-      <img src="media/Logo.png"alt="Logo"  width="96px" height="72px" align="middle">
+      <img id="logo" src="media/Logo.png"alt="Logo">
       <div id="menuToggle">
         <!--
           A fake / hidden checkbox is used as click reciever,
@@ -47,7 +47,7 @@ session_start();
           <?php
           if($_SESSION['loggedIn']) {
             ?>
-            <p>Welcome <?php echo $_SESSION['email'];?>.</p>
+            <li>Welcome <?php echo $_SESSION['email'];?></li>
             <?php
           }
           ?>
@@ -55,7 +55,7 @@ session_start();
           <li><a href="
           <?php
           if($_SESSION['type'] == "caretaker"){
-            echo "choose_user.php";
+            echo "choose_user.php?rel=planning.php";
           }
           else{
             echo "planning.php";
@@ -63,7 +63,16 @@ session_start();
 
           ?>
           ">Planning</a></li>
-          <li><a href="addevent.php">Add-event</a></li>
+          <li><a href="
+          <?php
+              if($_SESSION['type'] == "caretaker"){
+                  echo "choose_user.php?rel=addevent.php";
+              }
+              else{
+                  echo "addevent.php";
+              }
+
+              ?>">Add-event</a></li>
           <?php
           if($_SESSION['loggedIn']) {
             ?>

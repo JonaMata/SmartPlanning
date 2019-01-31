@@ -17,7 +17,7 @@ if($_SESSION['loggedIn']){
     error_log(implode('\n', $row));
 
     ?>
-    <form method="POST" action="planning.php">
+    <form method="POST" action="<?php echo $_GET['rel']; ?>">
       <input type="hidden" name="id" value="<?php echo $row[0];?>">
       <button type="submit"><?php echo $row[1];?></button>
     </form>

@@ -28,9 +28,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <div class="bubble">
 <form method="POST">
-  E-mail: <input type="email" name="email" required><br>
-  Password: <input type="password" name="password" required><br>
-  <button style="width: 200px; height: 20px"type="submit">Login</button>
+    <table>
+        <tr><td>E-mail:</td><td><input type="email" name="email" required></td></tr>
+        <tr><td>Password:</td><td><input type="password" name="password" required></td></tr>
+        <tr><td colspan="2"><button type="submit">Login</button></td></tr>
+    </table>
 </form>
 </div>
 

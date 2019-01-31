@@ -1,222 +1,221 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body, html {
-  margin: 0;
+    margin: 0;
 }
 
 html {
-  height:100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  display: grid;
+    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px auto 100px;
-    grid-template-areas:
-    "nav"
-    "content"
-    "footer";
+    grid-template-rows: 100px auto 2.5rem;
+    grid-template-areas: "nav" "content" "footer";
 
-    display: -ms-grid;  /* Support for MS Edge */
+    display: -ms-grid; /* Support for MS Edge */
     -ms-grid-columns: 1fr;
-    -ms-grid-rows: 50px auto 100px;
-    min-height:100%;
+    -ms-grid-rows: 70px auto 1rem;
+    min-height: 100%;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 }
 
 
-
-nav a {
-  display: inline-block;
-  color: rgb(255, 167,0);
-  text-decoration: none;
-  height: 50px;
-  margin-right: 20px;
-  font-size: 30px;
-  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
-  font-weight: bold;
-  /* font-family: 'Montserrat', sans-serif; */
-}
 
 #content {
-  grid-area: content;
-  -ms-grid-column: 1;
-  -ms-grid-row: 2;
-  background: rgb(255, 167,0);
+    grid-area: content;
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+    background: rgb(255, 167, 0);
+    padding: 0.5rem;
 }
 
 
 .bubble {
- border: 1px solid rgb(255, 167, 0);
- border-radius: 300px;
- padding: 30px;
- text-align: center;
- background-color: #ffca66;
- min-height: 10px;
- min-width: 50px;
- font-size: 30px;
- font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
- font-weight: bold;
- transition: 0.5s;
+    border: 1px solid rgb(255, 167, 0);
+    border-radius: 3rem;
+    padding: 30px;
+    text-align: center;
+    background-color: #ffca66;
+    min-height: 10px;
+    min-width: 50px;
+    font-size: 1rem;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-weight: bold;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.bubble: hover {
-  background-color: powderblue;
+.bubble form, .bubble table{
+    margin: auto;
 }
 
+.bubble form table button {
+    width: 100%;
+}
+
+
+.bubble:hover {
+    background-color: powderblue;
+}
 
 
 footer {
-  grid-area: footer;
-  -ms-grid-column: 1;
-  -ms-grid-row: 3;
-  background: rgb(255, 167,0);
-
-
+    grid-area: footer;
+    -ms-grid-column: 1;
+    -ms-grid-row: 3;
+    background: rgb(255, 167, 0);
+}
 
 
 /* ----------------------- MENU --------------------------*/
 nav {
-  grid-area: nav;
-  -ms-grid-column: 1;
-  -ms-grid-row: 1;
-  overflow: hidden;
+    grid-area: nav;
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    overflow: hidden;
 }
 
-#menu
-{
-  width: 300px;
-  height: 100vh;
-  position: fixed;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
+#menu {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
 
-  background: #e9e8e6;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased; /* to stop flickering text in safari */
+    background: #e9e8e6;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased; /* to stop flickering text in safari */
 
-  /* put the menu outside of the screen */
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+    /* put the menu outside of the screen */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
 
-  /* add a smooth animation */
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    /* add a smooth animation */
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
-#menu li
-{
-  padding: 10px 0;
-  font-size: 22px;
+#menu li {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 22px;
 }
 
 #menu li a {
-  text-align: center;
-  transition: 0.5s;
-  display: block;
-  padding: 12px 30px;
-  margin: 0 25%;
-  color: black;
-  border-style: solid;
-  border-color: #282828;
-  border-width: 0 0 3px;
-  font-size: 1.3rem;
-  text-decoration: none;
+    text-align: center;
+    transition: 0.5s;
+    display: block;
+    padding: 12px 30px;
+    margin: 0 20%;
+    color: black;
+    border-style: solid;
+    border-color: #282828;
+    border-width: 0 0 3px;
+    font-size: 1.3rem;
+    text-decoration: none;
 }
+
 #menu li a:hover {
-  margin: 0 15%;
-  font-weight: bold;
-  color: #C28865;
+    margin: 0 15%;
+    font-weight: bold;
+    color: #C28865;
 }
 
-#menuToggle
-{
-  display: block;
-  position: fixed;
-  left: 50px;
-  top: 44px;
-  z-index: 4;
+#menuToggle {
+    display: block;
+    position: absolute;
+    left: 25px;
+    top:40px;
+    z-index: 4;
 
-  /* unselect current selection if present */
-  -webkit-user-select: none;
-  user-select: none;
+    /* unselect current selection if present */
+    -webkit-user-select: none;
+    user-select: none;
 }
 
-#menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  cursor: pointer;
+#logo {
+    height: 175%;
+    margin-left: 50%;
+    transform: translate(-50%, -25%);
+}
 
-  opacity: 0; /* hide this */
-  z-index: 5; /* place it over the hamburger */
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
 
-  -webkit-touch-callout: none;  /* limit iOS users to do crazy things*/
+    opacity: 0; /* hide this */
+    z-index: 5; /* place it over the hamburger */
+
+    -webkit-touch-callout: none; /* limit iOS users to do crazy things*/
 }
 
 /* The hamburger button */
-#menuToggle span
-{
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  background: #cdcdcd;
-  border-radius: 3px;
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
 
-  z-index: 4;
+    z-index: 4;
 
-  /* add a smooth animation */
-  transform-origin: 4px 0px;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+    /* add a smooth animation */
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
-{
-  transform-origin: 0% 0%;
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
-  transform-origin: 0% 100%;
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
 }
 
 /* Transform all the slices of hamburger into a crossmark. */
-#menuToggle input:checked ~ span
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
 }
 
 /* hide the middle one. */
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
 }
 
 /* the last one should go the other direction */
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
-  transform: rotate(-45deg) translate(0, -1px);
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
 }
 
 /* slide it in from the left */
-#menuToggle input:checked ~ ul
-{
-  transform: none;
+#menuToggle input:checked ~ ul {
+    transform: none;
 }
 
-@media only screen and (max-width: 800px){
-  #menu  {
-    margin: -100px 0 0 -100px;
-    width: 100%;
-  }
+#menuToggle input:checked ~ div {
+    position: fixed;
+}
+
+@media only screen and (max-width: 800px) {
+    #menu {
+        margin: -100px 0 0 -100px;
+        width: 100%;
+    }
 }
