@@ -72,7 +72,7 @@ require('includes/header.php');
         wp[1] = new GLatLng(document.getElementById("lat2"),document.getElementById("long2"));
         directions.loadFromWaypoints(wp);
         GEvent.addListener(directions, "load", function() {
-          document.getElementById("log").innerHTML = directions.getDuration().seconds + " seconds from A to B";
+          document.getElementById("log").value = directions.getDuration().seconds + " seconds from A to B";
         });
       }
     </script>
