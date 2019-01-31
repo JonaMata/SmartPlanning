@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   Priority <input type="number" name="priority"><br>
   Can be moved to next day <input type="checkbox" value="1" name="can_next_day"><br>
   Due date <input type="date" name="due_date"><br>
-  <button type="submit">Add event</button>
+  <button style="height 200px; width:200px" type="submit">Add event</button>
 </form>
 </div>
 
