@@ -66,14 +66,22 @@ require('includes/header.php');
       }
 
       function getTravelTime(){
-        document.getElementById("log").value = "test";
-        var directions = new GDirections();
-        var wp = new Array ();
-        wp[0] = new GLatLng(document.getElementById("lat1"),document.getElementById("long1"));
-        wp[1] = new GLatLng(document.getElementById("lat2"),document.getElementById("long2"));
-        directions.loadFromWaypoints(wp);
-        GEvent.addListener(directions, "load", function() {
-          document.getElementById("log").value = directions.getDuration().seconds + " seconds from A to B";
+
+        var directionsService = new google.maps.DirectionsService();
+        var request = {
+          origin: new GLatLng(document.getElementById("lat1"),document.getElementById("long1")), // LatLng|string
+          destination: new GLatLng(document.getElementById("lat2"),document.getElementById("long2")), // LatLng|string
+          travelMode: google.maps.DirectionsTravelMode.DRIVING;
+        };
+
+        directionsService.route( request, function( response, status ) {
+          if ( status === 'OK' ) {
+            var point = response.routes[0].legs[0];
+            document.getElementById("log").value = + point.duration.text + ' (' + point.distance.text + ") from A to B";
+          }
+          else {
+              document.getElementById("log").value = "unable to calculate";
+          }
         });
       }
     </script>
