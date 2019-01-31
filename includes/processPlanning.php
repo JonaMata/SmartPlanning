@@ -22,15 +22,14 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
     $somedayFixedEvents = array();
 
     while ($row = $result->fetch_assoc()) {
-        if ($row['invisible'] == 1) break;
-        if ($row['can_next_day'] == 1 && $row['fixed'] == 0) {
-            $somedayFixedEvents[] = $row;
-        } else if ($row['can_next_day'] == 1) {
-            $somedayEvents[] = $row;
-        } else if ($row['fixed'] == 0) {
-            $todayEvents[] = $row;
+        if ($row['invisible'] == 1) {
+
         } else {
-            $fixedEvents[] = $row;
+            if ($row['fixed'] == 0) {
+                $todayEvents[] = $row;
+            } else {
+                $fixedEvents[] = $row;
+            }
         }
     }
 
