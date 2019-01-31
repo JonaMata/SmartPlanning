@@ -38,9 +38,12 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
         }
     }
 
-//    echo "<br><br>";
-//
-//    print_r($todayEvents);
+    echo "<br><br>TODAY: <pre>";
+
+    print_r($todayEvents);
+    echo "</pre><br><br>FIXED: <pre>";
+    print_r($fixedEvents);
+    echo "</pre><br>";
 
     $openTimeSlots = array();
 
