@@ -76,7 +76,7 @@ if ($_SESSION['loggedIn']) {
     <?php
 
 
-    $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND (invisible = 1 OR fixed = 0) ORDER BY start_time, end_time");
+    $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 0) ORDER BY start_time, end_time");
     $query->bind_param('is', $userid, $date);
     $query->execute();
 
