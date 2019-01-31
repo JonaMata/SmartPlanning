@@ -84,7 +84,7 @@ echo "</pre>";
     function nextEvent($duration, $events, $tempPossibleEvents)
     {
         echo "<br>YES<br>";
-        if($tempPossibleEvents['duration'] == $duration){
+        if($tempPossibleEvents['duration'] == $duration || count($events) <= 0){
             echo "<br>PLANNED<br>";
             global $possibleEvents;
             $possibleEvents[] = $tempPossibleEvents;
