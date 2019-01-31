@@ -45,7 +45,6 @@ body {
     font-size: 1rem;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-weight: bold;
-    opacity: 0.6;
     transition: 0.5s;
     display: flex;
     flex-direction: column;
@@ -63,7 +62,7 @@ body {
 
 
 .bubble:hover {
-    opacity: 1;
+    background: #ffdb99;
 }
 
 
