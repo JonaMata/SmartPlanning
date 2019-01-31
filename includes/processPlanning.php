@@ -108,6 +108,7 @@ echo "</pre>";
 
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
+        print_r($timeSlotPlanning);
         foreach ($timeSlotPlanning['events'] as $key=>$newValue) {
             unset($todayEvents[$key]);
             $updateEvents[] = $newValue;

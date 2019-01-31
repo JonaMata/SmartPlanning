@@ -14,7 +14,7 @@ if ($_SESSION['loggedIn']) {
             require('includes/database.php');
 
             $query = $conn->prepare("INSERT INTO planning (userid, name, description, location, date, start_time, end_time, fixed, priority, can_next_day, due_date) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $query->bind_param('issssssiiis', $userid, $_POST['name'], $_POST['description'], $_POST['location'], $_POST['date'], $_POST['start_time'], $_POST['end_time'], intval($_POST['fixed']), intval($_POST['priority']), intval($_POST['can_next_day']), $_POST['due_date']);
+            $query->bind_param('issssssiiis', $_POST['userid'], $_POST['name'], $_POST['description'], $_POST['location'], $_POST['date'], $_POST['start_time'], $_POST['end_time'], intval($_POST['fixed']), intval($_POST['priority']), intval($_POST['can_next_day']), $_POST['due_date']);
             $query->execute();
 
             header('Location: planning.php?plan=no');
