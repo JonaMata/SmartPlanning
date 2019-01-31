@@ -17,7 +17,7 @@ if ($_SESSION['loggedIn']) {
             $query->bind_param('issssssiiis', $userid, $_POST['name'], $_POST['description'], $_POST['location'], $_POST['date'], $_POST['start_time'], $_POST['end_time'], intval($_POST['fixed']), intval($_POST['priority']), intval($_POST['can_next_day']), $_POST['due_date']);
             $query->execute();
 
-            header('Location: planning.php');
+            header('Location: planning.php?plan=no');
         }
     }
 
