@@ -37,13 +37,13 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
             }
         }
     }
-
-    echo "<br><br>TODAY: <pre>";
-
-    print_r($todayEvents);
-    echo "</pre><br><br>FIXED: <pre>";
-    print_r($fixedEvents);
-    echo "</pre><br>";
+//
+//    echo "<br><br>TODAY: <pre>";
+//
+//    print_r($todayEvents);
+//    echo "</pre><br><br>FIXED: <pre>";
+//    print_r($fixedEvents);
+//    echo "</pre><br>";
 
     $openTimeSlots = array();
 
@@ -125,10 +125,10 @@ if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
 
     foreach ($openTimeSlots as $value) {
         $timeSlotPlanning = planEvents($value[1], $todayEvents);
-        $startTime = $value[0];
-        echo "<br>TIMESLOTPLANNING: <pre>";
-        print_r($timeSlotPlanning);
-        echo "</pre><br>";
+//        $startTime = $value[0];
+//        echo "<br>TIMESLOTPLANNING: <pre>";
+//        print_r($timeSlotPlanning);
+//        echo "</pre><br>";
         foreach ($timeSlotPlanning['events'] as $key => $newValue) {
             unset($todayEvents[$key]);
             $newValue['new_start_time'] = date('H:i', $startTime);
