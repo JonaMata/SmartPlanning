@@ -85,6 +85,7 @@ echo "</pre>";
     {
         echo "<br>YES<br>";
         if($tempPossibleEvents['duration'] == $duration){
+            echo "<br>PLANNED<br>";
             global $possibleEvents;
             $possibleEvents[] = $tempPossibleEvents;
         } else {
@@ -92,6 +93,7 @@ echo "</pre>";
                 $eventDuration = date('Hi', strtotime($value['end_time'])) - date('Hi', strtotime($value['start_time']));
                 $temp = $tempPossibleEvents;
                 if ($eventDuration + $temp['duration'] > $duration) {
+                    echo "<br>PLANNED<br>";
                     global $possibleEvents;
                     $possibleEvents[] = $temp;
                 } else {
