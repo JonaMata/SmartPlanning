@@ -4,10 +4,10 @@ require('includes/header.php');
 ?>
 
 <div class="item">
-  This should contain the planning for today
+  Welcome to your new planner app
 </div>
 <div class="item">
-  Test item 2
+  Welcome to APO
 </div>
 
 
