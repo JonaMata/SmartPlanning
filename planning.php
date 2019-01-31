@@ -59,12 +59,12 @@ if ($_SESSION['loggedIn']) {
                 <tr>
                     <th>Start time</th>
                     <td>
-                    <?php echo $row[3]; ?></th>
+                    <?php echo date('H:i', strtotime($row[3])); ?></th>
                 </tr>
                 <tr>
                     <th>End time</th>
                     <td>
-                    <?php echo $row[4]; ?></th>
+                    <?php echo date('H:i', strtotime($row[4])); ?></th>
                 </tr>
             </table>
         </div>
