@@ -6,7 +6,7 @@ $query->execute();
 
 $result = $query->get_result();
 
-if ($row = $result->fetch_array(MYSQLI_NUM)) {
+if ($row = $result->fetch_array(MYSQLI_NUM) && $_GET['plan'] != "no") {
 
 
     $query = $conn->prepare("SELECT name, description, location, start_time, end_time, fixed, can_next_day, invisible FROM planning WHERE userid = {$_SESSION['id']} AND date = ? ORDER BY start_time, end_time");
