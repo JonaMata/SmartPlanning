@@ -38,11 +38,11 @@ require('includes/header.php');
               var location = new google.maps.Marker({
                   position: pos,
                   map: map,
-                  draggable:true,
+                  draggable: true,
                   title: 'current location',
                   label: 'A'
-                });
-              map.setCenter(location);
+              });
+              map.setCenter(pos);
 
               document.getElementById("lat1").value = position.coords.latitude;
               document.getElementById("lng1").value = position.coords.longitude;
