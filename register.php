@@ -17,15 +17,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script src="register_check.js"></script>
 
+<div class="bubble">
 <form method="POST">
-  <!--Name: <input type="text" name="name" maxlength="100"><br>-->
-  E-mail: <input type="email" name="email" maxlength="100" required><br>
-  Password: <input type="password" id="password" name="password" maxlength="100" onkeyup="check();" required><br>
-  Repeat password: <input type="password" id="password-check" name="password-check" maxlength="100" onkeyup="check();" required><br>
-  Type: <input type="radio" name="type" value="1" checked>User <input type="radio" name="type" value="0">Caretaker<br>
-  <span id='message'></span><br>
-  <button type="submit" id="btnSubmit">Register</button>
+    <table>
+        <tr><td>E-mail:</td><td><input type="email" name="email" maxlength="100" required></td></tr>
+        <tr><td>Password:</td><td><input type="password" id="password" name="password" maxlength="100" onkeyup="check();" required></td></tr>
+        <tr><td>Repeat password:</td><td><input type="password" id="password-check" name="password-check" maxlength="100" onkeyup="check();" required></td></tr>
+        <tr><td></td><td><span id='message'></span></td></tr>
+        <tr><td>Type:</td><td><input type="radio" name="type" value="1" checked>User <input type="radio" name="type" value="0">Caretaker</td></tr>
+        <tr><td colspan="2"><button type="submit" id="btnSubmit">Register</button></td></tr>
+    </table>
 </form>
+</div>
 
 <?php
 require('includes/footer.php');

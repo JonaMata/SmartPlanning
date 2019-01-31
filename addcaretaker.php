@@ -15,7 +15,7 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
 
             echo "working";
 
-            $query = $conn->prepare("INSERT INTO association (caretaker_userid, userid, timeslots) VALUE (?, (SELECT id FROM users WHERE email=? AND secret=?), '')");
+            $query = $conn->prepare("INSERT INTO association (caretaker_userid, userid, category) VALUE (?, (SELECT id FROM users WHERE email=? AND secret=?), '')");
             $query->bind_param('iss', $_SESSION['id'], $_GET['email'], $_GET['secret']);
             $query->execute();
 
@@ -51,6 +51,12 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
     </script>
 
     <?php
+}else{
+  ?>
+  <div class="bubble">
+  <span>You need to be logged in.
+  </div>
+  <?php
 }
 
 require "includes/footer.php";

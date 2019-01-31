@@ -26,12 +26,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   header("Location: index.php");
 }
 ?>
-
+<div class="bubble">
 <form method="POST">
-  e-mail: <input type="email" name="email" required><br>
-  Password: <input type="password" name="password" required><br>
-  <button type="submit">Login</button>
+    <table>
+        <tr><td>E-mail:</td><td><input type="email" name="email" required></td></tr>
+        <tr><td>Password:</td><td><input type="password" name="password" required></td></tr>
+        <tr><td colspan="2"><button type="submit">Login</button></td></tr>
+    </table>
 </form>
+</div>
 
 <?php
 require('includes/footer.php');
