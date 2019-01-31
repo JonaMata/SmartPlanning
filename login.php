@@ -19,6 +19,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['email']=$_POST['email'];
     $_SESSION['type']=($row[1] == 1 ? "user" : "caretaker");
     $_SESSION['loggedIn']=true;
+  } else {
+    die("Email or password incorrect.");
   }
 
   header("Location: index.php");
