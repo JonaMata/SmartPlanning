@@ -19,7 +19,7 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
 ?>
 
 
-  <div class = "item">
+  <div class = "bubble">
 <table>
   <tr>
     <th>Name</th>
@@ -51,7 +51,7 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
 <?php
 }else{
   ?>
-  <div class="item">
+  <div class="bubble">
   <span>You need to be logged in.
   </div>
   <?php

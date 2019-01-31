@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script src="register_check.js"></script>
 
-<div class="item">
+<div class="bubble">
 <form method="POST">
   <!--Name: <input type="text" name="name" maxlength="100"><br>-->
   E-mail: <input type="email" name="email" maxlength="100" required><br>

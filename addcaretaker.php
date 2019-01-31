@@ -40,7 +40,7 @@ if(isset($_GET['email']) && isset($_GET['secret'])) {
     <?php
 }else{
   ?>
-  <div class="item">
+  <div class="bubble">
   <span>You need to be logged in.
   </div>
   <?php

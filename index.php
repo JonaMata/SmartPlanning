@@ -4,7 +4,7 @@ require('includes/header.php');
 ?>
 
 
-<div class="item">
+<div class="bubble">
   Welcome to APO
 </div>
 
