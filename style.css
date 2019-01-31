@@ -52,6 +52,7 @@ body {
 }
 
 .bubble form, .bubble table{
+    width: 80%;
     margin: auto;
     text-align: left;
 }
@@ -87,7 +88,7 @@ nav {
     height: 100vh;
     position: fixed;
     margin: -100px 0 0 -50px;
-    padding: 20px;
+    padding: 50px;
     padding-top: 125px;
 
     background: #e9e8e6;
