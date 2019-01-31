@@ -52,7 +52,6 @@ body {
 }
 
 .bubble form, .bubble table{
-    width: 80%;
     margin: auto;
     text-align: left;
 }
