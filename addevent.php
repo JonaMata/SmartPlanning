@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 ?>
-<div class="item">
+<div class="bubble">
 <form method="POST">
   Event <input name="name"><br>
   Description <input name="description"><br>
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php
 }else{
   ?>
-  <div class="item">
+  <div class="bubble">
   <span>You need to be logged in.
   </div>
   <?php
