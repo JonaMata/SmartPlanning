@@ -5,7 +5,7 @@ require('includes/header.php');
 if($_SESSION['loggedIn']){
   require('includes/database.php');
 
-  $query = $conn->prepare("SELECT userid FROM association WHERE caretaker_userid = ?");
+  $query = $conn->prepare("SELECT A.userid, U.email FROM association A LEFT JOIN users U ON A.userid = U.id  WHERE A.caretaker_userid = ?");
   $query->bind_param('i', $_SESSION['id']);
   $query->execute();
   $result = $query->get_result();
@@ -13,13 +13,13 @@ if($_SESSION['loggedIn']){
   if (count($result) == 0){
     echo "no users found";
   }
-
   while ($row = $result->fetch_array(MYSQLI_NUM)) {
     error_log(implode('\n', $row));
+
     ?>
     <form method="POST" action="planning.php">
       <input type="hidden" name="id" value="<?php echo $row[0];?>">
-      <button type="submit"><?php echo $row[0];?></button>
+      <button type="submit"><?php echo $row[1];?></button>
     </form>
     <?php
   }

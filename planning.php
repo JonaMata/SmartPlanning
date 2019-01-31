@@ -25,13 +25,13 @@ if ($_SESSION['loggedIn']){
     <form method='POST'>
         Date:
         <input type="date" name="date">
-        <input type="hidden" value="<?php echo($userid) ?>">
+        <input type="hidden" name="id" value="<?php echo($userid) ?>">
         <input type="submit" value="go">
     </form>
 
     <?php
     $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 1 ORDER BY start_time, end_time");
-    $query->bind_param('is', $_SESSION['id'], $date);
+    $query->bind_param('is', $userid, $date);
     $query->execute();
 
     $result = $query->get_result();
