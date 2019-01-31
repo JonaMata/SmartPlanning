@@ -70,51 +70,54 @@ if ($_SESSION['loggedIn']) {
         </div>
         <?php
     }
-    ?>
-    <h2>Unfixed events</h2>
-
-    <?php
 
 
-    $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 0) ORDER BY start_time, end_time");
-    $query->bind_param('is', $userid, $date);
-    $query->execute();
-
-    $result = $query->get_result();
-
-    while ($row = $result->fetch_array(MYSQLI_NUM)) {
-        error_log(implode('\n', $row));
+    if($_GET['plan'] == "no") {
         ?>
-        <div class="bubble">
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <td>
-                    <?php echo $row[0]; ?></th>
-                </tr>
-                <tr>
-                    <th>Description</th>
-                    <td>
-                    <?php echo $row[1]; ?></th>
-                </tr>
-                <tr>
-                    <th>Location</th>
-                    <td>
-                    <?php echo $row[2]; ?></th>
-                </tr>
-                <tr>
-                    <th>Duration</th>
-                    <td>
-                    <?php echo round(abs(strtotime($row[4])-strtotime($row[3]))/60,2); ?></th>
-                </tr>
-            </table>
-        </div>
+        <h2>Unfixed events</h2>
+
+        <?php
+
+
+        $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 0) ORDER BY start_time, end_time");
+        $query->bind_param('is', $userid, $date);
+        $query->execute();
+
+        $result = $query->get_result();
+
+        while ($row = $result->fetch_array(MYSQLI_NUM)) {
+            error_log(implode('\n', $row));
+            ?>
+            <div class="bubble">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td>
+                        <?php echo $row[0]; ?></th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>
+                        <?php echo $row[1]; ?></th>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td>
+                        <?php echo $row[2]; ?></th>
+                    </tr>
+                    <tr>
+                        <th>Duration</th>
+                        <td>
+                        <?php echo round(abs(strtotime($row[4]) - strtotime($row[3])) / 60, 2); ?></td>
+                    </tr>
+                </table>
+            </div>
+            <?php
+        }
+        ?>
+        <br><br><br><br><br><a href="planning.php">Force Plan</a>
         <?php
     }
-    ?>
-    <br><br><br><br><br><a href="planning.php">Force Plan</a>
-    <?php
-
 } else {
     ?>
     <div class="bubble">
