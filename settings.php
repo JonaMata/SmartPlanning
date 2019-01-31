@@ -36,6 +36,7 @@ $result = $query->get_result();
                 <tr>
                     <th>Caretaker</th>
                     <th>Category</th>
+                    <th>Delete</th>
                 </tr>
                 <?php
                 while ($row = $result->fetch_array(MYSQLI_NUM)) {
