@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 ?>
+<div class="item">
 <form method="POST">
   Event <input name="name"><br>
   Description <input name="description"><br>
@@ -31,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   Due date <input type="date" name="due_date"><br>
   <button type="submit">Add event</button>
 </form>
+</div>
 
 <?php
 }else{
