@@ -77,7 +77,7 @@ session_start();
           if($_SESSION['loggedIn']) {
               if($_SESSION['type'] == "user") {
                   echo "<li><a href=\"addcaretaker.php\">Add Caretaker</a></li>";
-                  echo "<li><a href\"settings.php\">Settings</a></li>";
+                  echo "<li><a href=\"settings.php\">Settings</a></li>";
               }
             ?>
             <li><a href="logout.php">Log out</a></li>
