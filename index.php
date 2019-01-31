@@ -25,7 +25,7 @@ if ($_SESSION['loggedIn']) {
 
         if ($startTime <= $currentTime && $endTime > $currentTime) {
             ?>
-            <h2>Current event:</h2>
+            <h2>Current event</h2>
             <div class="bubble">
                 <table>
                     <tr>
@@ -58,7 +58,7 @@ if ($_SESSION['loggedIn']) {
             <?php
         } else if ($startTime > $currentTime) {
             ?>
-            <h2>Next event:</h2>
+            <h2>Next event</h2>
             <div class="bubble">
                 <table>
                     <tr>

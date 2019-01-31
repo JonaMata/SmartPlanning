@@ -28,7 +28,7 @@ if ($_SESSION['loggedIn']) {
         <input type="hidden" name="id" value="<?php echo($userid) ?>">
         <input type="submit" value="go">
     </form>
-    <h2>Planning:</h2>
+    <h2>Planning</h2>
     <?php
     $query = $conn->prepare("SELECT name, description, location, start_time, end_time FROM planning WHERE userid = ? AND date = ? AND invisible = 0 AND fixed = 1 ORDER BY start_time, end_time");
     $query->bind_param('is', $userid, $date);
@@ -71,7 +71,7 @@ if ($_SESSION['loggedIn']) {
         <?php
     }
     ?>
-    <h2>Unfixed events:</h2>
+    <h2>Unfixed events</h2>
 
     <?php
 
