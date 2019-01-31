@@ -3,7 +3,7 @@ $title = 'Home';
 require('includes/header.php');
 ?>
 
-<div class="item; item:hover">
+<div class="item">
   This should contain the planning for today
 </div>
 <div class="item">
